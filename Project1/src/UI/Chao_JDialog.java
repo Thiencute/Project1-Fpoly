@@ -5,6 +5,10 @@
  */
 package UI;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Timer;
+
 /**
  *
  * @author admin
@@ -17,6 +21,8 @@ public class Chao_JDialog extends javax.swing.JDialog {
     public Chao_JDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        init();
+        
     }
 
     /**
@@ -28,17 +34,28 @@ public class Chao_JDialog extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        pgbLoading = new javax.swing.JProgressBar();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/loading.gif"))); // NOI18N
+
+        pgbLoading.setStringPainted(true);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(pgbLoading, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pgbLoading, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
         );
 
         pack();
@@ -87,5 +104,24 @@ public class Chao_JDialog extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JProgressBar pgbLoading;
     // End of variables declaration//GEN-END:variables
+
+    private void init() {
+        this.setLocationRelativeTo(null);
+        new javax.swing.Timer(10,new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                int value = pgbLoading.getValue();
+                if (value<pgbLoading.getMaximum()) {
+                    pgbLoading.setValue(value+1);
+                }
+                else{
+                    Chao_JDialog.this.dispose();
+                }
+            }
+        }).start();
+        
+    }
 }
