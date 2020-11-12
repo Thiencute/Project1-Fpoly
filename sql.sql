@@ -6,17 +6,17 @@ create table Nhanvien(
 	MaNV varchar(20) primary key not null,	
 	MatKhau varchar(20) not null,	
 	diachi nvarchar(20) not null,	
-	SDT char(13) not null,	
+	SDT varchar(13) not null,	
 	luong int,	
 	vaitro bit not null,	
-	email varchar(20)	
+	email varchar(50)	
 )	
 go	
 create table khachhang(	
 	MaKH varchar(20) primary key not null,	
 	MatKhau varchar(20) not null,	
 	DiaChi nvarchar(20) not null,	
-	SDT char(13) not null,	
+	SDT varchar(13) not null,	
 	GioiTinh bit,	
 	email varchar(20),	
 	NgaySinh date	
