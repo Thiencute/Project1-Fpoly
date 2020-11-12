@@ -14,4 +14,6 @@ public abstract  class Constructure {
     public abstract void Delete();;
     public abstract void Update();
     public abstract void Data();
+    //public abstract void Search(String Key);
+    
 }

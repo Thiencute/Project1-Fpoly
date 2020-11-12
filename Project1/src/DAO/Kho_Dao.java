@@ -5,30 +5,49 @@
  */
 package DAO;
 
+import Modal.Kho;
+import java.util.*;
+
 /**
  *
  * @author Home
  */
-public class Kho_Dao extends Constructure{
-
-    @Override
-    public void Insert() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+public class Kho_Dao {
+private String Insert = "";
+    private String Delte = "";
+    private String Update = "";
+    private String Data = "";
+    private String Search = "";
+    private String data = "";
+    private List<Kho> list = new ArrayList<>();
+    
+    public void Insert(String MaKho, String Diachi, String SucChua, String Ghichu) {
+        try {
+            ConnectSQL.preparedStatement(Insert, MaKho,Diachi,SucChua,Ghichu);
+            
+        } catch (Exception e) {
+        }finally{
+            
+    }
     }
 
-    @Override
-    public void Delete() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void Delete(String MaKho){
+        try {
+            ConnectSQL.preparedStatement(Insert, MaKho);
+        } catch (Exception e) {
+        }
     }
 
-    @Override
     public void Update() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public void Data() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      try {
+             ConnectSQL.preparedStatement(data);
+        } catch (Exception e) {
+            new RuntimeException(e);
+        } 
     }
     
 }

@@ -5,30 +5,53 @@
  */
 package DAO;
 
+import java.util.*;
+import Modal.SanPham;
+
 /**
  *
  * @author Home
  */
-public class SanPham_Dao extends Constructure{
-
-    @Override
-    public void Insert() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+public class SanPham_Dao {
+    private String Insert = "";
+    private String Delte = "";
+    private String Update = "";
+    private String Data = "";
+    private String Search = "";
+    private String data = "";
+    private List<SanPham> list = new ArrayList<>();
+    
+    
+    public void Insert(String MaSP, String TenSP, Date NgayNhap, double TheTich, double GiaTien) {
+        try {
+             ConnectSQL.preparedStatement(Insert, MaSP,TenSP,NgayNhap,TheTich,GiaTien);
+        } catch (Exception e) {
+            new RuntimeException(e);
+        }
     }
 
-    @Override
-    public void Delete() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void Delete(String MaSP) {
+        try {
+            ConnectSQL.preparedStatement(Delte, MaSP);
+        } catch (Exception e) {
+            new RuntimeException(e);
+        }
     }
 
-    @Override
-    public void Update() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void Update(String MaSP, String TenSP, Date NgayNhap, double TheTich, double GiaTien) {
+         try {
+             ConnectSQL.preparedStatement(Update, MaSP,TenSP,NgayNhap,TheTich,GiaTien);
+        } catch (Exception e) {
+            new RuntimeException(e);
+        }
     }
 
-    @Override
     public void Data() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      try {
+             ConnectSQL.preparedStatement(data);
+        } catch (Exception e) {
+            new RuntimeException(e);
+        } 
     }
     
 }

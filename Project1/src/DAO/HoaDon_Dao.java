@@ -9,26 +9,32 @@ package DAO;
  *
  * @author Home
  */
-public class HoaDon_Dao extends Constructure{
+public class HoaDon_Dao {
+private String Insert = "";
+    private String Delte = "";
+    private String Update = "";
+    private String Data = "";
+    private String Search = "";
+    private String data = "";
 
-    @Override
     public void Insert() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public void Delete() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public void Update() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public void Data() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      try {
+             ConnectSQL.preparedStatement(data);
+        } catch (Exception e) {
+            new RuntimeException(e);
+        } 
     }
     
 }
