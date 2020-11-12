@@ -7,8 +7,11 @@ package DAO;
 
 /**
  *
- * @author admin
+ * @author Home
  */
-public class NhanVienDao {
-    
+public abstract  class Constructure {
+    public abstract void Insert();
+    public abstract void Delete();;
+    public abstract void Update();
+    public abstract void Data();
 }
