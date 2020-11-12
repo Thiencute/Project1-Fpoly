@@ -47,9 +47,9 @@ public class DangNhap_JDialog extends javax.swing.JDialog {
 
         jLabel3.setText("Mật khẩu");
 
-        jButton1.setText("Quản lí");
+        jButton1.setText("Đăng nhập");
 
-        jButton2.setText("Nhân viên");
+        jButton2.setText("Thoát");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
