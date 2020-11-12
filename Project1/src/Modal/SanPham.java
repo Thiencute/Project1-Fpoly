@@ -5,6 +5,7 @@
  */
 package Modal;
 
+import javax.swing.ImageIcon;
 /**
  *
  * @author Home
@@ -15,7 +16,7 @@ public class SanPham {
     private String NgayNhapHang;
     private double TheTich;
     private double GiaTien;
-
+    
     public SanPham() {
     }
 
