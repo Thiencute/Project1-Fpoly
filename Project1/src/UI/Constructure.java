@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAO;
+package UI;
 
 /**
  *
@@ -11,9 +11,9 @@ package DAO;
  */
 public abstract  class Constructure {
     public abstract void Insert();
-    public abstract void Delete();;
+    public abstract void Delete();
     public abstract void Update();
     public abstract void Data();
-    //public abstract void Search(String Key);
+    public abstract void Search();
     
 }

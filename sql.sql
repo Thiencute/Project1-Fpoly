@@ -67,7 +67,7 @@ go
 create table hoadon(	
 maHoaDon varchar(20) not null primary key,	
 MaKH varchar(20) not null,	
-Tongtien float not null	
+Ghichu nvarchar(30) not null	
 )	
 go
 
@@ -75,8 +75,8 @@ create table HDCT_DichVu(
 	maHDCT int IDENTITY (0,1) primary key not null,
 	maHoaDon varchar(20) not null,
 	maDichVu varchar(20) not null,
-	NgayBatDau date default Getdate(),
-	NgayKetThuc date,
+	NgayBatDau datetime default Getdate(),
+	NgayKetThuc datetime,
 	ghichu nvarchar(50) default N'Hoàn Thành đúng hạn'
 )
 go
@@ -85,8 +85,8 @@ create table HDCT_MuaBan(
 	maHDCT int IDENTITY (0,1) primary key not null,
 	maHoaDon varchar(20) not null,
 	maSanPham varchar(20) not null,
-	NgayBatDau date default Getdate(),
-	NgayKetThuc date,
+	NgayBatDau datetime default Getdate(),
+	NgayKetThuc datetime,
 	ghichu nvarchar(50) default N'Hoàn Thành đúng hạn'
 )
 
@@ -113,7 +113,59 @@ add constraint FK_CTMB_HD Foreign key(maHoaDon) references HoaDon(maHoaDon) on d
 
 
 -- them du lieu
+-- them du lieu
+ insert into khachhang(MaKH,MatKhau,DiaChi,SDT,GioiTinh,email,NgaySinh)
+ values ('kh1','123','BenTre','034586134',1,'tam@gmail.com','9/11/2000'),
+        ('kh2','321','VinhLong','039985134',1,'hieu@gmail.com','4/1/2001'),
+		('kh3','123','BenTre','0383223034',0,'vi@gmail.com','4/5/2000')
+insert into hoadon(maHoaDon,MaKH,ghichu)
+values ('hd1','kh1','ghichu1'),
+       ('hd2','kh2','ghichu2'),
+	   ('hd3','kh3','ghichu3')
+--
+go
 insert into dichvu(madichvu,giatien,mota,tendichvu) 
 values ('dv1',50000,'rua xe nha',N'Rửa xe'),
-('dv2',40000,'thay phu tung cho xe',N'Thay Phụ Tùng')
---hi
+('dv2',40000,'thay phu tung cho xe',N'Thay Phụ Tùng'),
+('dv3',50000,'tu van mua xe',N'Tư Vấn')
+--
+go
+
+
+--1 quanly, 0nhanvien'
+insert into nhanvien(MaNV,MatKhau,diachi,SDT,luong,vaitro,email)
+values ('cuong','123','HoChiMinh','0374280429',5000000,0,'cudenc8888@gmail.com'),
+ ('cuongkhoaito','456','VungTau','0391234567',5000000,0,'cuong123@gmail.com'),
+ ('thiencute','789','DaLat','037489223',9000000,1,'thiencute@gmail.com')
+ --
+ --1 nam, 0 nữ
+ s
+go
+
+insert into sanpham(MaSanPham,ngayNhapHang,GiaTien,Mota,TheTich,soLuong)
+ values ('001','9/1/2020',5000000,'vo xe',1.5,10),
+        ('002','9/1/2020',800000,'ruot xe',0.5,10),
+		('003','9/1/2020',1000000,'kinh xe',1,10)
+go
+
+insert into NhaCungCap(MaNCC,tenNCC,MaSanPham,NoiSanXuat,diachi)
+values  ('001','honda','001','NhaMay1','Đồng Nai'),
+        ('002','honda','002','NhaMay2','Vũng Tàu'),
+        ('003','honda','003','NhaMay3','Hồ Chí Minh')
+--
+insert into Kho(MaKho,SucChua,DiaChi,GhiChu)
+values ('Kho1','50','Ho Chi Minh',N'chứa vỏ xe'),
+       ('Kho2','50','Ho Chi Minh',N'chứa ruột xe'),
+	   ('Kho3','50','Ho Chi Minh',N'chứa kính xe')
+go
+--
+insert into KhoChiTiet(MaKho,MaSanPham,soLuong,GhiChu)
+values ('Kho1','001',10,'ghichu1'),
+       ('Kho2','002',10,'ghichu2'),
+	   ('Kho3','003',10,'ghichu3')
+--
+/*
+insert into HDCT_MuaBan(maHDCT,maHoaDon,maSanPham,NgayBatDau,NgayKetThuc,ghichu)
+go
+insert into HDCT_DichVu(maHoaDon,maDichVu,NgayBatDau,NgayKetThuc,ghichu)
+go*/

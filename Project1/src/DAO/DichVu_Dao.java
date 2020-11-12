@@ -11,12 +11,12 @@ package DAO;
  */
 public class DichVu_Dao {
    
-    private String Insert = "";
-    private String Delte = "";
-    private String Update = "";
-    private String Data = "";
-    private String Search = "";
-    private String data = "";
+    private String Insert = "insert into DichVu(madichvu,giatien,mota,tendichvu)values (?,?,?,?)";
+    private String Delete = "delete from DichVu where MaDichVu like ?";
+    private String Update = "update DichVu set tendichvu = ?, giatien=?, mota = ? where madichvu like ? ";
+    private String data = "select * from DichVu";
+    private String Search = "select * from DichVu where like ?";
+
     public void Insert() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

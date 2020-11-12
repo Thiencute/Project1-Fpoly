@@ -13,12 +13,11 @@ import Modal.SanPham;
  * @author Home
  */
 public class SanPham_Dao {
-    private String Insert = "";
-    private String Delte = "";
-    private String Update = "";
-    private String Data = "";
-    private String Search = "";
-    private String data = "";
+    private String Insert = "insert into SanPham(MaSanPham,ngayNhapHang,GiaTien,Mota,TheTich,soLuong)values ('?,?,?,?,?,?)";
+    private String Delete = "delete from SanPham where MaSanPham like ?";
+    private String Update = " update SanPham set ngayNhapHang = ?,GiaTien = ?,Mota = ?, TheTich = ?, soLuong = ? where MaSanPham like ?";
+    private String Data = "select * from SanPham";
+    private String Search = "select * from SanPham where MaSanPham like ?";
     private List<SanPham> list = new ArrayList<>();
     
     
@@ -32,7 +31,7 @@ public class SanPham_Dao {
 
     public void Delete(String MaSP) {
         try {
-            ConnectSQL.preparedStatement(Delte, MaSP);
+            ConnectSQL.preparedStatement(Delete, MaSP);
         } catch (Exception e) {
             new RuntimeException(e);
         }
@@ -48,7 +47,7 @@ public class SanPham_Dao {
 
     public void Data() {
       try {
-             ConnectSQL.preparedStatement(data);
+             ConnectSQL.preparedStatement(Data);
         } catch (Exception e) {
             new RuntimeException(e);
         } 
