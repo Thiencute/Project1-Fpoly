@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Modal;
-
+import java.util.Date;
 import javax.swing.ImageIcon;
 /**
  *
@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
 public class SanPham {
     private String MaSP;
     private String TenSP;
-    private String NgayNhapHang;
+    private Date NgayNhapHang;
     private double TheTich;
     private double GiaTien;
     
@@ -28,7 +28,7 @@ public class SanPham {
         this.TenSP = TenSP;
     }
 
-    public void setNgayNhapHang(String NgayNhapHang) {
+    public void setNgayNhapHang(Date NgayNhapHang) {
         this.NgayNhapHang = NgayNhapHang;
     }
 
@@ -48,7 +48,7 @@ public class SanPham {
         return TenSP;
     }
 
-    public String getNgayNhapHang() {
+    public Date getNgayNhapHang() {
         return NgayNhapHang;
     }
 

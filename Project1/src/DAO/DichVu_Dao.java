@@ -4,12 +4,14 @@
  * and open the template in the editor.
  */
 package DAO;
- import DAO.ConnectSQL;
+import Modal.DichVu;
+import Dao.Constructure;
+import java.util.List;
 /**
  *
  * @author Home
  */
-public class DichVu_Dao {
+public class DichVu_Dao extends Constructure<DichVu>{
    
     private String Insert = "insert into DichVu(madichvu,giatien,mota,tendichvu)values (?,?,?,?)";
     private String Delete = "delete from DichVu where MaDichVu like ?";
@@ -17,25 +19,30 @@ public class DichVu_Dao {
     private String data = "select * from DichVu";
     private String Search = "select * from DichVu where like ?";
 
-    public void Insert() {
+    @Override
+    public void Insert(DichVu enity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-   
-    public void Delete() {
+    @Override
+    public void Delete(DichVu enity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void Update() {
+    @Override
+    public void Update(DichVu enity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-   public void Data() {
-      try {
-             ConnectSQL.preparedStatement(data);
-        } catch (Exception e) {
-            new RuntimeException(e);
-        } 
+    @Override
+    public List<DichVu> Data() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
+    @Override
+    public List<DichVu> Search(DichVu enity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+ 
 }

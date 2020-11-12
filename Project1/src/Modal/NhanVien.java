@@ -13,17 +13,30 @@ public class NhanVien {
     private String MaNV;
     private String MatKhau;
     private String TenNV;
-    private String Vaitro;
+    private boolean Vaitro;
     private String SDT;
     private String Address;
     private Double Luong;
     private boolean GioiTinh;
+    private String email;
     
     public NhanVien() {
     }
 
     public void setGioiTinh(boolean GioiTinh) {
         this.GioiTinh = GioiTinh;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public boolean isVaitro() {
+        return Vaitro;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public boolean isGioiTinh() {
@@ -42,7 +55,7 @@ public class NhanVien {
         this.TenNV = TenNV;
     }
 
-    public void setVaitro(String Vaitro) {
+    public void setVaitro(boolean Vaitro) {
         this.Vaitro = Vaitro;
     }
 
@@ -68,10 +81,6 @@ public class NhanVien {
 
     public String getTenNV() {
         return TenNV;
-    }
-
-    public String getVaitro() {
-        return Vaitro;
     }
 
     public String getSDT() {

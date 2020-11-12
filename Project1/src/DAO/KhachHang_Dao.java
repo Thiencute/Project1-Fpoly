@@ -4,37 +4,45 @@
  * and open the template in the editor.
  */
 package DAO;
-
+import Dao.Constructure;
+import Modal.KhachHang;
+import java.util.List;
 /**
  *
  * @author Home
  */
-public class KhachHang_Dao {
+public class KhachHang_Dao extends Constructure<KhachHang>{
 private String Insert = "";
     private String Delte = "";
     private String Update = "";
     private String Data = "";
     private String Search = "";
     private String data = "";
-    
-    public void Insert() {
+
+    @Override
+    public void Insert(KhachHang enity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void Delete() {
+    @Override
+    public void Delete(KhachHang enity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void Update() {
+    @Override
+    public void Update(KhachHang enity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void Data() {
-      try {
-             ConnectSQL.preparedStatement(data);
-        } catch (Exception e) {
-            new RuntimeException(e);
-        } 
+    @Override
+    public List<KhachHang> Data() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public List<KhachHang> Search(KhachHang enity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
 }

@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import Dao.Constructure;
 import Modal.Kho;
 import java.util.*;
 
@@ -12,7 +13,7 @@ import java.util.*;
  *
  * @author Home
  */
-public class Kho_Dao {
+public class Kho_Dao extends Constructure<Kho>{
 private String Insert = "";
     private String Delte = "";
     private String Update = "";
@@ -20,34 +21,30 @@ private String Insert = "";
     private String Search = "";
     private String data = "";
     private List<Kho> list = new ArrayList<>();
-    
-    public void Insert(String MaKho, String Diachi, String SucChua, String Ghichu) {
-        try {
-            ConnectSQL.preparedStatement(Insert, MaKho,Diachi,SucChua,Ghichu);
-            
-        } catch (Exception e) {
-        }finally{
-            
-    }
-    }
 
-    public void Delete(String MaKho){
-        try {
-            ConnectSQL.preparedStatement(Insert, MaKho);
-        } catch (Exception e) {
-        }
-    }
-
-    public void Update() {
+    @Override
+    public void Insert(Kho enity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void Data() {
-      try {
-             ConnectSQL.preparedStatement(data);
-        } catch (Exception e) {
-            new RuntimeException(e);
-        } 
+    @Override
+    public void Delete(Kho enity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
+    @Override
+    public void Update(Kho enity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Kho> Data() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Kho> Search(Kho enity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+ 
 }

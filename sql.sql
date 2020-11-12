@@ -5,9 +5,11 @@ go
 create table Nhanvien(	
 	MaNV varchar(20) primary key not null,	
 	MatKhau varchar(20) not null,	
+	TenNV nvarchar(20) not null,
 	diachi nvarchar(20) not null,	
 	SDT varchar(13) not null,	
-	luong int,	
+	GioiTinh bit not null,	
+	luong float,	
 	vaitro bit not null,	
 	email varchar(50)	
 )	
@@ -132,14 +134,14 @@ values ('dv1',50000,'rua xe nha',N'Rửa xe'),
 go
 
 
---1 quanly, 0nhanvien'
+--1 true quanly, 0 false nhanvien'
 insert into nhanvien(MaNV,MatKhau,diachi,SDT,luong,vaitro,email)
 values ('cuong','123','HoChiMinh','0374280429',5000000,0,'cudenc8888@gmail.com'),
  ('cuongkhoaito','456','VungTau','0391234567',5000000,0,'cuong123@gmail.com'),
  ('thiencute','789','DaLat','037489223',9000000,1,'thiencute@gmail.com')
  --
- --1 nam, 0 nữ
- s
+ --1 (true)nam, 0 (False)nữ
+ 
 go
 
 insert into sanpham(MaSanPham,ngayNhapHang,GiaTien,Mota,TheTich,soLuong)
