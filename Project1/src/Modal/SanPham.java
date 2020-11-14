@@ -16,8 +16,36 @@ public class SanPham {
     private Date NgayNhapHang;
     private double TheTich;
     private double GiaTien;
+    private String Mota;
+    private int SoLuong;
     
     public SanPham() {
+    }
+
+    public SanPham(String MaSP, String TenSP, Date NgayNhapHang, double TheTich, double GiaTien, String Mota, int SoLuong) {
+        this.MaSP = MaSP;
+        this.TenSP = TenSP;
+        this.NgayNhapHang = NgayNhapHang;
+        this.TheTich = TheTich;
+        this.GiaTien = GiaTien;
+        this.Mota = Mota;
+        this.SoLuong = SoLuong;
+    }
+    
+    public void setSoLuong(int SoLuong) {
+        this.SoLuong = SoLuong;
+    }
+
+    public int getSoLuong() {
+        return SoLuong;
+    }
+
+    public void setMota(String Mota) {
+        this.Mota = Mota;
+    }
+
+    public String getMota() {
+        return Mota;
     }
 
     public void setMaSP(String MaSP) {

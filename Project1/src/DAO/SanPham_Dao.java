@@ -7,73 +7,95 @@ package DAO;
 
 import java.util.*;
 import java.sql.*;
-import Dao.Constructure;
+import DAO.Constructure;
 import DAO.Date;
 import Modal.SanPham;
 import DAO.Date;
+
 /**
  *
  * @author Home
  */
 public class SanPham_Dao extends Constructure<SanPham> {
+    // select + insert Chay tot
+    static private String Insert = "insert into SanPham(MaSanPham,ngayNhapHang,GiaTien,Mota,TheTich,soLuong,TenSanPham)values (?,?,?,?,?,?,?)";
+    static private String Delete = "delete from SanPham where MaSanPham like ?";
+    static private String Update = " update SanPham set ngayNhapHang = ?,GiaTien = ?,Mota = ?, TheTich = ?, soLuong = ?, TenSP = ? where MaSanPham like ?";
+    static private String Data = "select * from SanPham";
+    static private String Search = "select * from SanPham where MaSanPham like ?";
+    static private List<SanPham> list = new ArrayList<>();
 
-    private String Insert = "insert into SanPham(MaSanPham,ngayNhapHang,GiaTien,Mota,TheTich,soLuong)values ('?,?,?,?,?,?)";
-    private String Delete = "delete from SanPham where MaSanPham like ?";
-    private String Update = " update SanPham set ngayNhapHang = ?,GiaTien = ?,Mota = ?, TheTich = ?, soLuong = ? where MaSanPham like ?";
-    private String Data = "select * from SanPham";
-    private String Search = "select * from SanPham where MaSanPham like ?";
-    private List<SanPham> list = new ArrayList<>();
-    private SanPham sp = new SanPham();
+    static private List<SanPham> select(String sql, Object... args) {
 
-    private List<SanPham> select(String sql, Object... args) {
-        
-        return list;
-    }
-
-    private SanPham Read(String sql, Object... args) {
-        sp = new SanPham();
-        ResultSet rs = ConnectSQL.ResultSet(sql, args);
+        SanPham sp = new SanPham();
         try {
-            while (rs.next()) {
-                sp.setMaSP(rs.getString("MaSP"));
-                sp.setTenSP(rs.getString("TenSP"));
+            ResultSet rs = null;
+            try {
+                rs = ConnectSQL.ResultSet(sql, args);
+                while (rs.next()) {
+                    sp = Read(rs);
+                    list.add(sp);
+                }
+                return list;
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+    static private SanPham Read(ResultSet rs) {
+        SanPham sp = new SanPham();
+        try {
+            sp.setMaSP(rs.getString("MaSanPham"));
+                sp.setTenSP(rs.getString("TenSanPham"));
                 sp.setTheTich(rs.getDouble("TheTich"));
                 sp.setGiaTien(rs.getDouble("GiaTien"));
                 sp.setNgayNhapHang(Date.DateForm(rs.getDate("ngayNhapHang")));
-            }
+                sp.setMota(rs.getString("Mota"));
+                sp.setSoLuong(rs.getInt("soLuong"));
+//                sp.setMaSP(rs.getString(1));
+//                sp.setTenSP(rs.getString(2));
+//                sp.setTheTich(rs.getDouble(6));
+//                sp.setGiaTien(rs.getDouble(4));
+//                sp.setNgayNhapHang(Date.DateForm(rs.getDate(3)));
+//                sp.setMota(rs.getString(5));
+//                sp.setSoLuong(rs.getInt(7));
+            return sp;
+
         } catch (Exception e) {
-        } finally {
-            try {
-                rs.close();
-            } catch (Exception e) {
-            }
+            throw new RuntimeException(e);
         }
-        return sp;
     }
 
+    //SanPham(MaSanPham,ngayNhapHang,GiaTien,Mota,TheTich,soLuong,TenSP)
     @Override
     public void Insert(SanPham enity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ConnectSQL.excuteUpdate(Insert, enity.getMaSP(), enity.getNgayNhapHang(), enity.getGiaTien(), enity.getMota(), enity.getTheTich(), enity.getSoLuong(), enity.getTenSP());
     }
 
     @Override
     public void Delete(SanPham enity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ConnectSQL.excuteUpdate(Delete, enity.getMaSP());
     }
 
     @Override
     public void Update(SanPham enity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ConnectSQL.excuteUpdate(Insert, enity.getNgayNhapHang(), enity.getGiaTien(), enity.getMota(), enity.getTheTich(), enity.getSoLuong(), enity.getTenSP(), enity.getMaSP());
     }
 
     @Override
     public List<SanPham> Data() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return select(Data);
     }
 
     @Override
     public List<SanPham> Search(SanPham enity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return select(Search, enity.getMaSP());
     }
 
-}
+    
+    }
+   
+    
+

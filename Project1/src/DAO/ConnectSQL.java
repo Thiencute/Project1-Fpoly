@@ -19,49 +19,52 @@ public class ConnectSQL {
 
     static {
         try {
-            Class.forName("con.microsoft.sqlserver.jdbc.SQLSeverDriver");
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         } catch (Exception e) {
-            new RuntimeException(e);
+            throw new RuntimeException(e);
         }
     }
 
-    private static PreparedStatement preparedStatement(String sql, Object... args) throws SQLException {
-        Connection con = DriverManager.getConnection(url, User, pass);
-        PreparedStatement pre = null;
-        try {
-            pre = con.prepareStatement(sql);
-            for (int i = 0; i < args.length; i++) {
-                pre.setObject(i + 1, args[i]);
-            }
-        } catch (Exception e) {
-
+   
+     
+     public static PreparedStatement prepareStatement(String sql, Object...args) throws SQLException{
+         Connection connection = DriverManager.getConnection(url,User,pass);
+         PreparedStatement pstmt = null;
+         if(sql.trim().startsWith("{")){
+             pstmt = connection.prepareCall(sql);
+         }
+         else{
+             pstmt = connection.prepareStatement(sql);
+         }
+         for(int i=0;i<args.length;i++){
+             pstmt.setObject(i+1, args[i]);
+         }
+         return pstmt;
+     }
+    public static void excuteUpdate(String sql, Object...args) {
+        try{
+             PreparedStatement stmt = prepareStatement(sql, args);
+             try {
+                    stmt.executeUpdate();
+             }
+             finally{
+                     stmt.getConnection().close();
+             }
         }
-        return pre;
+        catch (SQLException e) {
+                    throw new RuntimeException(e);
+                    }
     }
-
-    public static void excuteUpdate(String sql, Object... args) {
-        try {
-            PreparedStatement pre = preparedStatement(sql, args);
+    public static ResultSet ResultSet(String sql, Object...args) throws ExceptionInInitializerError{
             try {
-                pre.executeUpdate();
-            } catch (Exception e) {
-                new RuntimeException(e);
-            } finally {
-                pre.getConnection().close();
-            }
-        } catch (Exception e) {
-            new RuntimeException(e);
-        }
-    }
-
-    public static ResultSet ResultSet(String sql, Object... args) {
-        try {
-            PreparedStatement pre = preparedStatement(sql, args);
-            return pre.executeQuery();
-        } catch (Exception e) {
-            new RuntimeException(e);
-            return null;
-        }
-    }
-
+                 PreparedStatement stmt = prepareStatement(sql, args);
+                 
+                 return stmt.executeQuery();
+                 
+                }
+                catch (SQLException e) {
+                     throw new RuntimeException(e);
+                                        }
+ }
+   
 }

@@ -20,11 +20,11 @@ public class Date {
         return new java.util.Date(System.currentTimeMillis());
    }
   
-   public static java.sql.Date DateSql(String date) throws ParseException{
+   public static java.sql.Date DateSql(java.util.Date date) throws ParseException{
         if(date == null){
             return new java.sql.Date(Now().getTime());
         }else{
-            return new java.sql.Date(Format_Time.parse(date).getTime());
+            return new java.sql.Date(date.getTime());
         }
    }
    

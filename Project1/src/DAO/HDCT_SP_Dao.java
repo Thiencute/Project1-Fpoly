@@ -5,7 +5,7 @@
  */
 package DAO;
 import Modal.HDCT_SP;
-import Dao.Constructure;
+import DAO.Constructure;
 import java.util.List;
 /**
  *

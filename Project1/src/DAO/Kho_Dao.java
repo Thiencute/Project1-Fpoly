@@ -5,7 +5,7 @@
  */
 package DAO;
 
-import Dao.Constructure;
+import DAO.Constructure;
 import Modal.Kho;
 import java.util.*;
 

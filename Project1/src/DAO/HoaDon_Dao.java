@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package DAO;
-import Dao.Constructure;
+
+import DAO.Constructure;
 import Modal.HoaDon;
 import java.util.List;
 /**

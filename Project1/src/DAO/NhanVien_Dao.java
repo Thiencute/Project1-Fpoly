@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package DAO;
-import Dao.Constructure;
+import DAO.Constructure;
 import Modal.NhanVien;
 import java.sql.*;
 import java.util.ArrayList;
@@ -25,16 +25,16 @@ private Double Luong;
     
     */
 public class NhanVien_Dao extends Constructure<NhanVien>{
-    private String Insert = "insert into nhanvien(MaNV,MatKhau,TenNV,SDT,luong,vaitro,email,DiaChi,GioiTinh)values (?,?,?,?,?,?,?,?,?)";
-    private String Delete = "delete from nhanvien where MaNV like ?";
-    private String Update = "update NhanVien set MatKhau = ?,TenNV = ?, diachi = ?, SDT = ?, luong = ?, vaitro = ?, email = ?, GioiTinh = ? where MaNV like ?";
-    private String Data = "select * from nhanvien";
-    private String Search = "select * from nhanvien where MaNV like ?";
+   static  private String Insert = "insert into nhanvien(MaNV,MatKhau,TenNV,SDT,luong,vaitro,email,DiaChi,GioiTinh)values (?,?,?,?,?,?,?,?,?)";
+   static  private String Delete = "delete from nhanvien where MaNV like ?";
+   static  private String Update = "update NhanVien set MatKhau = ?,TenNV = ?, diachi = ?, SDT = ?, luong = ?, vaitro = ?, email = ?, GioiTinh = ? where MaNV like ?";
+   static  private String Data = "select * from nhanvien";
+    static private String Search = "select * from nhanvien where MaNV like ?";
     
-    NhanVien nv = new NhanVien();
-    List<NhanVien> list = new ArrayList<>();
+   static  NhanVien nv = new NhanVien();
+   static  List<NhanVien> list = new ArrayList<>();
     
-   private List<NhanVien> select(String sql,Object...args) {
+   static  private List<NhanVien> select(String sql,Object...args) {
        list = new ArrayList<>();
        ResultSet rs = ConnectSQL.ResultSet(sql, args);
        try {
@@ -52,7 +52,7 @@ public class NhanVien_Dao extends Constructure<NhanVien>{
        
        return list;
    };
-   private NhanVien Read(ResultSet rs) throws SQLException{
+   static  private NhanVien Read(ResultSet rs) throws SQLException{
       nv = new NhanVien();
       nv.setMaNV(rs.getString("MaNV"));
       nv.setMatKhau(rs.getString("MatKhau"));
@@ -61,7 +61,7 @@ public class NhanVien_Dao extends Constructure<NhanVien>{
       nv.setAddress(rs.getString("DiaChi"));
       nv.setLuong(rs.getDouble("luong"));
       nv.setSDT(rs.getString("SDT"));
-      nv.setVaitro(rs.getInt("VaiTro")==1?true:false); // 1 là quản lý 2 là nhân viên
+      nv.setVaitro((rs.getInt("VaiTro")==1)); // 1 là quản lý 2 là nhân viên
       return nv; 
    }
     //insert into nhanvien(MaNV,MatKhau,TenNV,SDT,luong,vaitro,email,DiaChi)
@@ -89,4 +89,22 @@ public class NhanVien_Dao extends Constructure<NhanVien>{
     public List<NhanVien> Data() {
         return select(Data);
     }
+   static  public List<NhanVien> Searchh(NhanVien enity) {
+        return  select(Search, enity.getMaNV());
+    }
+    //check Data
+    public static void main(String[] args) {
+        NhanVien nv = new NhanVien();
+        nv.setMaNV("thiencute");
+        List<NhanVien> l = Searchh(nv);
+        for (NhanVien v : l) {
+            System.out.println(v.getMaNV());
+            System.out.println(v.getMatKhau());
+        }
+        
+    }
+    
+    
+    
+    
 }
