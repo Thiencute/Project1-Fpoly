@@ -136,7 +136,7 @@ values ('hd1','kh1','ghichu1'),
 	   ('hd3','kh3','ghichu3'),
 	   ('hd4','kh4','ghichu4'),
        ('hd5','kh5','ghichu5'),
-	   ('hd6','kh6','ghichu6')
+	   ('hd6','kh6','ghichu6'),
 	   ('hd7','kh7','ghichu7'),
        ('hd8','kh8','ghichu8'),
 	   ('hd9','kh9','ghichu9'),
@@ -157,45 +157,46 @@ go
 
 
 
---1 quanly, 0nhanvien'
-insert into nhanvien(MaNV,MatKhau,diachi,SDT,luong,vaitro,email)
-values ('cuong','123','HoChiMinh','0374280429',5000000,0,'cudenc8888@gmail.com'),
- ('cuongkhoaito','456','VungTau','0391234567',5000000,0,'cuong123@gmail.com'),
- ('thiencute','789','DaLat','037489223',9000000,1,'thiencute@gmail.com'),
- (' teo','323','HoChiMinh','037423652',5000000,0,'teo8888@gmail.com'),
- ('vi','466','HoChiMinh','0391288997',5000000,0,'vi@gmail.com'),
- ('thy','889','HoChiMinh','063489223',5000000,0,'thy@gmail.com'),
- ('tam','163','HoChiMinh','0823690429',5000000,0,'tam8888@gmail.com'),
- ('khoa','460','HoChiMinh','0989123354',5000000,0,'khoa@gmail.com'),
- ('hieu','719','DaLat','063248233',5000000,0,'hieu@gmail.com'),
- ('vy','333','HoChiMinh','038558229',5000000,0,'vy8888@gmail.com')
+--1 quanly + nam, 0nhanvien+ nữ
+
+insert into nhanvien(MaNV,MatKhau,TenNV,diachi,SDT,GioiTinh,luong,vaitro,email)
+values ('cuong','123','HoChiMinh',N'cường','0374280429',1,5000000,0,'cudenc8888@gmail.com'),
+ ('cuongkhoaito','456','VungTau',N'cường khoai to','0391234567',1,5000000,0,'cuong123@gmail.com'),
+ ('thiencute','789','DaLat',N'thiện cute','037489223',1,9000000,1,'thiencute@gmail.com'),
+ (' teo','323','HoChiMinh',N'tèo','037423652',1,5000000,0,'teo8888@gmail.com'),
+ ('vi','466','HoChiMinh',N'vi','0391288997',0,5000000,0,'vi@gmail.com'),
+ ('thy','889','HoChiMinh',N'thy','063489223',0,5000000,0,'thy@gmail.com'),
+ ('tam','163','HoChiMinh',N'tâm','0823690429',1,5000000,0,'tam8888@gmail.com'),
+ ('khoa','460','HoChiMinh',N'khoa','0989123354',1,5000000,0,'khoa@gmail.com'),
+ ('hieu','719','DaLat',N'hiếu','063248233',1,5000000,0,'hieu@gmail.com'),
+ ('vy','333','HoChiMinh',N'vy','038558229',1,5000000,0,'vy8888@gmail.com')
 
 go
  --1 nam, 0 nữ
 
 
 
-insert into sanpham(MaSanPham,ngayNhapHang,GiaTien,Mota,TheTich,soLuong)
- values ('001','9/1/2020',5000000,N'vỏ xe',1.5,10),
-        ('002','9/1/2020',800000,N'ruột xe',0.5,10),
-		('003','9/1/2020',1000000,N'kính xe',1,10),
-		('004','9/1/2020',5000000,N'bánh xe',1.5,10),
-        ('005','9/1/2020',800000,N'dàn áo xe',0.5,10),
-		('006','9/1/2020',1000000,N'nhớt xe',1,10),
-		('007','9/1/2020',5000000,N'ốc xe',1.5,10),
-        ('008','9/1/2020',800000,N'đèn xe',0.5,10),
-		('009','9/1/2020',1000000,N'yên xe',1,10),
-		('0010','9/1/2020',5000000,N'tay thắng xe',1.5,10)
+insert into sanpham(MaSanPham,TenSanPham,ngayNhapHang,GiaTien,Mota,TheTich,soLuong)
+ values ('001',N'vỏ xe','9/1/2020',5000000,N'màu đen',1.5,10),
+        ('002',N'ruột xe','9/1/2020',800000,N'nhiều loại',0.5,10),
+		('003',N'kính xe','9/1/2020',1000000,N'nhiều loại',1,10),
+		('004',N'bánh xe','9/1/2020',5000000,N'nhiều loại',1.5,10),
+        ('005',N'dàn áo xe','9/1/2020',800000,N'nhiều loại',0.5,10),
+		('006',N'nhớt xe','9/1/2020',1000000,N'nhiều loại',1,10),
+		('007',N'ốc xe','9/1/2020',5000000,N'nhiều loại',1.5,10),
+        ('008',N'đèn xe','9/1/2020',800000,N'nhiều loại',0.5,10),
+		('009',N'yên xe','9/1/2020',1000000,N'nhiều loại',1,10),
+		('0010',N'tay thắng xe','9/1/2020',5000000,N'nhiều loại',1.5,10)
 
 go
 
 insert into NhaCungCap(MaNCC,tenNCC,MaSanPham,NoiSanXuat,diachi)
 values  ('001','honda','001','NhaMay1','Đồng Nai'),
         ('002','honda','002','NhaMay2','Vũng Tàu'),
-        ('003','honda','003','NhaMay3','Hồ Chí Minh')
+        ('003','honda','003','NhaMay3','Hồ Chí Minh'),
 		('004','honda','004','NhaMay4','Đồng Nai'),
         ('005','honda','005','NhaMay5','Vũng Tàu'),
-        ('006','honda','006','NhaMay6','Hồ Chí Minh')
+        ('006','honda','006','NhaMay6','Hồ Chí Minh'),
 		('007','honda','007','NhaMay7','Đồng Nai'),
         ('008','honda','008','NhaMay8','Vũng Tàu'),
         ('009','honda','009','NhaMay9','Hồ Chí Minh'),
