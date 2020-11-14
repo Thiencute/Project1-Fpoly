@@ -17,6 +17,7 @@ public class DangNhap_JDialog extends javax.swing.JDialog {
     public DangNhap_JDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
