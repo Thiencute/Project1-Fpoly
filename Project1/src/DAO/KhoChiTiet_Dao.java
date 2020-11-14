@@ -4,37 +4,45 @@
  * and open the template in the editor.
  */
 package DAO;
-
+import DAO.Constructure;
+import Modal.KhoChiTiet;
+import java.util.List;
 /**
  *
  * @author Home
  */
-public class KhoChiTiet_Dao {
+public class KhoChiTiet_Dao extends Constructure<KhoChiTiet>{
 private String Insert = "";
     private String Delte = "";
     private String Update = "";
     private String Data = "";
     private String Search = "";
     private String data = "";
-    
-    public void Insert() {
+
+    @Override
+    public void Insert(KhoChiTiet enity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void Delete() {
+    @Override
+    public void Delete(KhoChiTiet enity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void Update() {
+    @Override
+    public void Update(KhoChiTiet enity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void Data() {
-      try {
-             ConnectSQL.preparedStatement(data);
-        } catch (Exception e) {
-            new RuntimeException(e);
-        } 
+    @Override
+    public List<KhoChiTiet> Data() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public List<KhoChiTiet> Search(KhoChiTiet enity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+ 
     
 }

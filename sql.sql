@@ -5,9 +5,11 @@ go
 create table Nhanvien(	
 	MaNV varchar(20) primary key not null,	
 	MatKhau varchar(20) not null,	
+	TenNV nvarchar(20) not null,
 	diachi nvarchar(20) not null,	
 	SDT varchar(13) not null,	
-	luong int,	
+	GioiTinh bit not null,	
+	luong float,	
 	vaitro bit not null,	
 	email varchar(50)	
 )	
@@ -24,11 +26,13 @@ create table khachhang(
 go	
 create  table sanpham(	
 	MaSanPham varchar(20) primary key not null,	
+	TenSanPham Nvarchar(20) not null,
 	ngayNhapHang date default Getdate(),	
 	GiaTien money  not null,	
 	Mota nvarchar(50),	
 	TheTich float  not null,	
-	soLuong int  not null	
+	soLuong int  not null,
+	Img image
 )	
 go	
 
@@ -113,6 +117,12 @@ add constraint FK_CTMB_HD Foreign key(maHoaDon) references HoaDon(maHoaDon) on d
 
 
 -- them du lieu
+--1 true quanly, 0 false nhanvien'
+insert into nhanvien(MaNV,MatKhau,diachi,SDT,luong,vaitro,email,tenNV,GioiTinh)
+values ('cuong','123','HoChiMinh','0374280429',5000000,0,'cudenc8888@gmail.com',N'Nguyễn Văn Cường',1),
+ ('cuongkhoaito','456','VungTau','0391234567',5000000,0,'cuong123@gmail.com',N'Lê Văn Cường',1),
+ ('thiencute','789','DaLat','037489223',9000000,1,'thiencute@gmail.com',N'Trần Xuân Thiện',1),
+ ('LyCute','789','DaLat','037489223',9000000,1,'Lycute@gmail.com',N'Đỗ Thảo Ly',0)
 -- them du lieu
  insert into khachhang(MaKH,MatKhau,DiaChi,SDT,GioiTinh,email,NgaySinh)
  values ('kh1','123','BenTre','034586134',1,'tam@gmail.com','9/11/2000'),
@@ -132,26 +142,22 @@ values ('dv1',50000,'rua xe nha',N'Rửa xe'),
 go
 
 
---1 quanly, 0nhanvien'
-insert into nhanvien(MaNV,MatKhau,diachi,SDT,luong,vaitro,email)
-values ('cuong','123','HoChiMinh','0374280429',5000000,0,'cudenc8888@gmail.com'),
- ('cuongkhoaito','456','VungTau','0391234567',5000000,0,'cuong123@gmail.com'),
- ('thiencute','789','DaLat','037489223',9000000,1,'thiencute@gmail.com')
- --
- --1 nam, 0 nữ
- s
-go
 
-insert into sanpham(MaSanPham,ngayNhapHang,GiaTien,Mota,TheTich,soLuong)
- values ('001','9/1/2020',5000000,'vo xe',1.5,10),
-        ('002','9/1/2020',800000,'ruot xe',0.5,10),
-		('003','9/1/2020',1000000,'kinh xe',1,10)
+ --
+ --1 (true)nam, 0 (False)nữ
+ go
+
+select * from sanpham
+insert into sanpham(MaSanPham,ngayNhapHang,GiaTien,Mota,TheTich,soLuong,TenSanPham)
+ values ('a001','9/1/2020',5000000,'vo xe',1,10,N'Vỏ Xe'),
+        ('a002','9/1/2020',800000,'ruot xe',1,10,N'Ruột Xe'),
+		('a003','9/1/2020',1000000,'kinh xe',1,10,N'Kính Xe')
 go
 
 insert into NhaCungCap(MaNCC,tenNCC,MaSanPham,NoiSanXuat,diachi)
-values  ('001','honda','001','NhaMay1','Đồng Nai'),
-        ('002','honda','002','NhaMay2','Vũng Tàu'),
-        ('003','honda','003','NhaMay3','Hồ Chí Minh')
+values  ('001','honda','a001','NhaMay1','Đồng Nai'),
+        ('002','honda','a002','NhaMay2','Vũng Tàu'),
+        ('003','honda','a003','NhaMay3','Hồ Chí Minh')
 --
 insert into Kho(MaKho,SucChua,DiaChi,GhiChu)
 values ('Kho1','50','Ho Chi Minh',N'chứa vỏ xe'),

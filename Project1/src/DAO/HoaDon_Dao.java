@@ -5,11 +5,14 @@
  */
 package DAO;
 
+import DAO.Constructure;
+import Modal.HoaDon;
+import java.util.List;
 /**
  *
  * @author Home
  */
-public class HoaDon_Dao {
+public class HoaDon_Dao extends Constructure<HoaDon>{
 private String Insert = "";
     private String Delte = "";
     private String Update = "";
@@ -17,24 +20,32 @@ private String Insert = "";
     private String Search = "";
     private String data = "";
 
-    public void Insert() {
+    @Override
+    public void Insert(HoaDon enity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void Delete() {
+    @Override
+    public void Delete(HoaDon enity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void Update() {
+    @Override
+    public void Update(HoaDon enity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void Data() {
-      try {
-             ConnectSQL.preparedStatement(data);
-        } catch (Exception e) {
-            new RuntimeException(e);
-        } 
+    @Override
+    public List<HoaDon> Data() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public List<HoaDon> Search(HoaDon enity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
+
     
 }

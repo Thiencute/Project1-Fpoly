@@ -4,58 +4,67 @@
  * and open the template in the editor.
  */
 package DAO;
+
 import java.sql.*;
+
 /**
  *
  * @author Home
  */
 public class ConnectSQL {
+
     private static String User = "Project1";
     private static String pass = "abc";
     private static String url = "jdbc:sqlserver://localhost;database=Project1_CB";
-    static{
+
+    static {
         try {
-             Class.forName("con.microsoft.sqlserver.jdbc.SQLSeverDriver");
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         } catch (Exception e) {
-            new RuntimeException(e);
+            throw new RuntimeException(e);
         }
     }
-    
-    public static PreparedStatement preparedStatement(String sql,Object...args) throws SQLException{
-        Connection con = DriverManager.getConnection(url, User, pass);
-        PreparedStatement pre = null;
-        try {
-           pre = con.prepareStatement(sql);
-        } catch (Exception e) {
-            
-        }
-        return pre;
-    }
-    public static void excuteUpdate(String sql,Object...args){
-        try {
-             PreparedStatement pre = preparedStatement(sql, args);
+
+   
+     
+     public static PreparedStatement prepareStatement(String sql, Object...args) throws SQLException{
+         Connection connection = DriverManager.getConnection(url,User,pass);
+         PreparedStatement pstmt = null;
+         if(sql.trim().startsWith("{")){
+             pstmt = connection.prepareCall(sql);
+         }
+         else{
+             pstmt = connection.prepareStatement(sql);
+         }
+         for(int i=0;i<args.length;i++){
+             pstmt.setObject(i+1, args[i]);
+         }
+         return pstmt;
+     }
+    public static void excuteUpdate(String sql, Object...args) {
+        try{
+             PreparedStatement stmt = prepareStatement(sql, args);
              try {
-                pre.executeUpdate();
-            } catch (Exception e) {
-                new RuntimeException(e);
-            }finally{
-                 pre.getConnection().close();
+                    stmt.executeUpdate();
              }
-        } catch (Exception e) {
+             finally{
+                     stmt.getConnection().close();
+             }
         }
+        catch (SQLException e) {
+                    throw new RuntimeException(e);
+                    }
     }
-    public static ResultSet ResultSet(String sql,Object...args){
-        try {
-            PreparedStatement pre = preparedStatement(sql, args);
-            return pre.executeQuery();
-        } catch (Exception e) {
-            new RuntimeException(e);
-            return null;
-        }
-    }
-    
-    
-    
-    
-    
+    public static ResultSet ResultSet(String sql, Object...args) throws ExceptionInInitializerError{
+            try {
+                 PreparedStatement stmt = prepareStatement(sql, args);
+                 
+                 return stmt.executeQuery();
+                 
+                }
+                catch (SQLException e) {
+                     throw new RuntimeException(e);
+                                        }
+ }
+   
 }
