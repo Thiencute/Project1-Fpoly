@@ -31,7 +31,8 @@ create  table sanpham(
 	GiaTien money  not null,	
 	Mota nvarchar(50),	
 	TheTich float  not null,	
-	soLuong int  not null	
+	soLuong int  not null,
+	Img image
 )	
 go	
 
@@ -145,8 +146,7 @@ go
  --
  --1 (true)nam, 0 (False)nữ
  go
- insert into NhanVien
-go
+
 select * from sanpham
 insert into sanpham(MaSanPham,ngayNhapHang,GiaTien,Mota,TheTich,soLuong,TenSanPham)
  values ('a001','9/1/2020',5000000,'vo xe',1,10,N'Vỏ Xe'),
@@ -155,9 +155,9 @@ insert into sanpham(MaSanPham,ngayNhapHang,GiaTien,Mota,TheTich,soLuong,TenSanPh
 go
 
 insert into NhaCungCap(MaNCC,tenNCC,MaSanPham,NoiSanXuat,diachi)
-values  ('001','honda','001','NhaMay1','Đồng Nai'),
-        ('002','honda','002','NhaMay2','Vũng Tàu'),
-        ('003','honda','003','NhaMay3','Hồ Chí Minh')
+values  ('001','honda','a001','NhaMay1','Đồng Nai'),
+        ('002','honda','a002','NhaMay2','Vũng Tàu'),
+        ('003','honda','a003','NhaMay3','Hồ Chí Minh')
 --
 insert into Kho(MaKho,SucChua,DiaChi,GhiChu)
 values ('Kho1','50','Ho Chi Minh',N'chứa vỏ xe'),

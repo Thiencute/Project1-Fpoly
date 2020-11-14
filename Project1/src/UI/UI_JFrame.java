@@ -6,7 +6,6 @@
 package UI;
 
 import java.awt.Color;
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -20,7 +19,6 @@ public class UI_JFrame extends javax.swing.JFrame {
     public UI_JFrame() {
         initComponents();
         initColor();
-        jLabel2.setIcon(new ImageIcon("icon\\xe.jpg"));
     }
     void initColor(){
         setLocationRelativeTo(null);
