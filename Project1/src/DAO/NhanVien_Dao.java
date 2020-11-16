@@ -104,7 +104,14 @@ public class NhanVien_Dao extends Constructure<NhanVien>{
         
     }
     
-    
+    public NhanVien SelectById(String MaNV) {
+
+        List<NhanVien> list = select(Search, MaNV);
+        if (list.isEmpty()) {
+            return null;
+        }
+        return list.get(0);
+    }
     
     
 }

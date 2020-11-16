@@ -23,6 +23,11 @@ public class NhanVien {
     public NhanVien() {
     }
 
+    public NhanVien(String MaNV, String MatKhau) {
+        this.MaNV = MaNV;
+        this.MatKhau = MatKhau;
+    }
+
     public void setGioiTinh(boolean GioiTinh) {
         this.GioiTinh = GioiTinh;
     }
