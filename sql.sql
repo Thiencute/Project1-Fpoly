@@ -115,63 +115,124 @@ add constraint FK_CTMB_SP Foreign key(MaSanPham) references SanPham(MaSanPham) o
 alter table HDCT_MuaBan 
 add constraint FK_CTMB_HD Foreign key(maHoaDon) references HoaDon(maHoaDon) on delete cascade on update cascade
 
-
--- them du lieu
---1 true quanly, 0 false nhanvien'
-insert into nhanvien(MaNV,MatKhau,diachi,SDT,luong,vaitro,email,tenNV,GioiTinh)
-values ('cuong','123','HoChiMinh','0374280429',5000000,0,'cudenc8888@gmail.com',N'Nguyễn Văn Cường',1),
- ('cuongkhoaito','456','VungTau','0391234567',5000000,0,'cuong123@gmail.com',N'Lê Văn Cường',1),
- ('thiencute','789','DaLat','037489223',9000000,1,'thiencute@gmail.com',N'Trần Xuân Thiện',1),
- ('LyCute','789','DaLat','037489223',9000000,1,'Lycute@gmail.com',N'Đỗ Thảo Ly',0)
--- them du lieu
- insert into khachhang(MaKH,MatKhau,DiaChi,SDT,GioiTinh,email,NgaySinh)
+insert into khachhang(MaKH,MatKhau,DiaChi,SDT,GioiTinh,email,NgaySinh)
  values ('kh1','123','BenTre','034586134',1,'tam@gmail.com','9/11/2000'),
         ('kh2','321','VinhLong','039985134',1,'hieu@gmail.com','4/1/2001'),
-		('kh3','123','BenTre','0383223034',0,'vi@gmail.com','4/5/2000')
+		('kh3','124','BenTre','0383223034',0,'vi@gmail.com','4/5/2000'),
+		('kh4','125','TiengGiang','0325606134',1,'nghia@gmail.com','9/1/2000'),
+        ('kh5','322','KienGiang','071343134',1,'tuong@gmail.com','3/10/2001'),
+		('kh6','126','CanTho','038865654',1,'duy@gmail.com','2/8/2000'),
+		('kh7','127','TraVinh','078954134',0,'vy@gmail.com','1/1/2000'),
+        ('kh8','323','HauGiang','063153834',1,'nhan@gmail.com','3/1/2001'),
+		('kh9','129','SocTrang','094566354',1,'teo@gmail.com','2/9/2000'),
+		('kh10','111','','0399658134',1,'bang@gmail.com','9/1/2000')
+go
+--
+
+
 insert into hoadon(maHoaDon,MaKH,ghichu)
 values ('hd1','kh1','ghichu1'),
        ('hd2','kh2','ghichu2'),
-	   ('hd3','kh3','ghichu3')
---
+	   ('hd3','kh3','ghichu3'),
+	   ('hd4','kh4','ghichu4'),
+       ('hd5','kh5','ghichu5'),
+	   ('hd6','kh6','ghichu6'),
+	   ('hd7','kh7','ghichu7'),
+       ('hd8','kh8','ghichu8'),
+	   ('hd9','kh9','ghichu9'),
+	   ('hd10','kh10','ghichu10')
 go
+--
+
 insert into dichvu(madichvu,giatien,mota,tendichvu) 
 values ('dv1',50000,'rua xe nha',N'Rửa xe'),
 ('dv2',40000,'thay phu tung cho xe',N'Thay Phụ Tùng'),
-('dv3',50000,'tu van mua xe',N'Tư Vấn')
---
+('dv3',50000,'tu van mua xe',N'Tư Vấn'),
+ ('dv4',50000,'bao tri',N'Bảo Trì'),
+('dv5',40000,'cham soc khach hang',N'Chăm Sóc Khách Hàng'),
+('dv6',50000,'huong dan su dung',N'Hướng Dẫn')
+
 go
+--
 
 
 
- --
- --1 (true)nam, 0 (False)nữ
- go
+--1 quanly + nam, 0nhanvien+ nữ
 
-select * from sanpham
-insert into sanpham(MaSanPham,ngayNhapHang,GiaTien,Mota,TheTich,soLuong,TenSanPham)
- values ('a001','9/1/2020',5000000,'vo xe',1,10,N'Vỏ Xe'),
-        ('a002','9/1/2020',800000,'ruot xe',1,10,N'Ruột Xe'),
-		('a003','9/1/2020',1000000,'kinh xe',1,10,N'Kính Xe')
+insert into nhanvien(MaNV,MatKhau,TenNV,diachi,SDT,GioiTinh,luong,vaitro,email)
+values ('cuong','123','HoChiMinh',N'cường','0374280429',1,5000000,0,'cudenc8888@gmail.com'),
+ ('cuongkhoaito','456','VungTau',N'cường khoai to','0391234567',1,5000000,0,'cuong123@gmail.com'),
+ ('thiencute','789','DaLat',N'thiện cute','037489223',1,9000000,1,'thiencute@gmail.com'),
+ (' teo','323','HoChiMinh',N'tèo','037423652',1,5000000,0,'teo8888@gmail.com'),
+ ('vi','466','HoChiMinh',N'vi','0391288997',0,5000000,0,'vi@gmail.com'),
+ ('thy','889','HoChiMinh',N'thy','063489223',0,5000000,0,'thy@gmail.com'),
+ ('tam','163','HoChiMinh',N'tâm','0823690429',1,5000000,0,'tam8888@gmail.com'),
+ ('khoa','460','HoChiMinh',N'khoa','0989123354',1,5000000,0,'khoa@gmail.com'),
+ ('hieu','719','DaLat',N'hiếu','063248233',1,5000000,0,'hieu@gmail.com'),
+ ('vy','333','HoChiMinh',N'vy','038558229',1,5000000,0,'vy8888@gmail.com')
+
+go
+ --1 nam, 0 nữ
+
+
+
+insert into sanpham(MaSanPham,TenSanPham,ngayNhapHang,GiaTien,Mota,TheTich,soLuong)
+ values ('001',N'vỏ xe','9/1/2020',5000000,N'màu đen',1.5,10),
+        ('002',N'ruột xe','9/1/2020',800000,N'nhiều loại',0.5,10),
+		('003',N'kính xe','9/1/2020',1000000,N'nhiều loại',1,10),
+		('004',N'bánh xe','9/1/2020',5000000,N'nhiều loại',1.5,10),
+        ('005',N'dàn áo xe','9/1/2020',800000,N'nhiều loại',0.5,10),
+		('006',N'nhớt xe','9/1/2020',1000000,N'nhiều loại',1,10),
+		('007',N'ốc xe','9/1/2020',5000000,N'nhiều loại',1.5,10),
+        ('008',N'đèn xe','9/1/2020',800000,N'nhiều loại',0.5,10),
+		('009',N'yên xe','9/1/2020',1000000,N'nhiều loại',1,10),
+		('0010',N'tay thắng xe','9/1/2020',5000000,N'nhiều loại',1.5,10)
+
 go
 
 insert into NhaCungCap(MaNCC,tenNCC,MaSanPham,NoiSanXuat,diachi)
-values  ('001','honda','a001','NhaMay1','Đồng Nai'),
-        ('002','honda','a002','NhaMay2','Vũng Tàu'),
-        ('003','honda','a003','NhaMay3','Hồ Chí Minh')
+values  ('001','honda','001','NhaMay1','Đồng Nai'),
+        ('002','honda','002','NhaMay2','Vũng Tàu'),
+        ('003','honda','003','NhaMay3','Hồ Chí Minh'),
+		('004','honda','004','NhaMay4','Đồng Nai'),
+        ('005','honda','005','NhaMay5','Vũng Tàu'),
+        ('006','honda','006','NhaMay6','Hồ Chí Minh'),
+		('007','honda','007','NhaMay7','Đồng Nai'),
+        ('008','honda','008','NhaMay8','Vũng Tàu'),
+        ('009','honda','009','NhaMay9','Hồ Chí Minh'),
+        ('0010','honda','0010','NhaMay10','Hồ Chí Minh')
+go
 --
 insert into Kho(MaKho,SucChua,DiaChi,GhiChu)
 values ('Kho1','50','Ho Chi Minh',N'chứa vỏ xe'),
        ('Kho2','50','Ho Chi Minh',N'chứa ruột xe'),
-	   ('Kho3','50','Ho Chi Minh',N'chứa kính xe')
+	   ('Kho3','50','Ho Chi Minh',N'chứa kính xe'),
+	   ('Kho4','50','Ho Chi Minh',N'chứa bánh xe'),
+       ('Kho5','50','Ho Chi Minh',N'chứa dàn áo xe'),
+	   ('Kho6','50','Ho Chi Minh',N'chứa nhớt xe'),
+	   ('Kho7','50','Ho Chi Minh',N'chứa ốc xe'),
+       ('Kho8','50','Ho Chi Minh',N'chứa đèn xe'),
+	   ('Kho9','50','Ho Chi Minh',N'chứa yên xe'),
+	   ('Kho10','50','Ho Chi Minh',N'chứa tay thắng xe')
 go
 --
 insert into KhoChiTiet(MaKho,MaSanPham,soLuong,GhiChu)
 values ('Kho1','001',10,'ghichu1'),
        ('Kho2','002',10,'ghichu2'),
-	   ('Kho3','003',10,'ghichu3')
+	   ('Kho3','003',10,'ghichu3'),
+	   ('Kho4','004',10,'ghichu4'),
+       ('Kho5','005',10,'ghichu5'),
+	   ('Kho6','006',10,'ghichu6'),
+	   ('Kho7','007',10,'ghichu7'),
+       ('Kho8','008',10,'ghichu8'),
+	   ('Kho9','009',10,'ghichu9'),
+	   ('Kho10','0010',10,'ghichu10')
+go
+
 --
 /*
 insert into HDCT_MuaBan(maHDCT,maHoaDon,maSanPham,NgayBatDau,NgayKetThuc,ghichu)
 go
+
 insert into HDCT_DichVu(maHoaDon,maDichVu,NgayBatDau,NgayKetThuc,ghichu)
 go*/
