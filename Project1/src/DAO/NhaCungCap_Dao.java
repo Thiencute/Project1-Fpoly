@@ -13,7 +13,7 @@ import java.sql.*;
  *
  * @author Home
  */
-public class NhaCungCap_Dao extends Constructure<NhaCungCap>{
+public class NhaCungCap_Dao extends Constructure<NhaCungCap,String>{
     private String Insert = "insert into NhaCungCap(MaNCC,tenNCC,MaSanPham,NoiSanXuat,diachi) values  (?,?,?,?,?,)";
     private String Delte = "";
     private String Update = "update NhaCungCap set MaNCC = ?,tenNCC = ?,MaSanPham = ?,NoiSanXuat = ? where MaNCC like ?";
@@ -67,8 +67,8 @@ public class NhaCungCap_Dao extends Constructure<NhaCungCap>{
     }
 
     @Override
-    public List<NhaCungCap> Search(NhaCungCap enity) {
-         return select(Data, enity.getMaNCC());
+    public List<NhaCungCap> Search(String enity) {
+         return select(Data, enity);
     }
  
     

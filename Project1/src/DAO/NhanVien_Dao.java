@@ -24,7 +24,7 @@ private Double Luong;
     private boolean GioiTinh;
     
     */
-public class NhanVien_Dao extends Constructure<NhanVien>{
+public class NhanVien_Dao extends Constructure<NhanVien,String>{
    static  private String Insert = "insert into nhanvien(MaNV,MatKhau,TenNV,SDT,luong,vaitro,email,DiaChi,GioiTinh)values (?,?,?,?,?,?,?,?,?)";
    static  private String Delete = "delete from nhanvien where MaNV like ?";
    static  private String Update = "update NhanVien set MatKhau = ?,TenNV = ?, diachi = ?, SDT = ?, luong = ?, vaitro = ?, email = ?, GioiTinh = ? where MaNV like ?";
@@ -81,8 +81,8 @@ public class NhanVien_Dao extends Constructure<NhanVien>{
     }
 
     @Override
-    public List<NhanVien> Search(NhanVien enity) {
-        return  select(Search, enity.getMaNV());
+    public List<NhanVien> Search(String enity) {
+        return  select(Search, enity);
     }
 
     @Override

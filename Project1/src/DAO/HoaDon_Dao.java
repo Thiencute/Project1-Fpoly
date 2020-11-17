@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Home
  */
-public class HoaDon_Dao extends Constructure<HoaDon>{
+public class HoaDon_Dao extends Constructure<HoaDon,String>{
 private String Insert = "";
     private String Delte = "";
     private String Update = "";
@@ -41,7 +41,7 @@ private String Insert = "";
     }
 
     @Override
-    public List<HoaDon> Search(HoaDon enity) {
+    public List<HoaDon> Search(String enity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

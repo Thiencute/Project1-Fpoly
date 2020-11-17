@@ -16,13 +16,13 @@ import DAO.Date;
  *
  * @author Home
  */
-public class SanPham_Dao extends Constructure<SanPham> {
+public class SanPham_Dao extends Constructure<SanPham, String> {
     // select + insert Chay tot
     static private String Insert = "insert into SanPham(MaSanPham,ngayNhapHang,GiaTien,Mota,TheTich,soLuong,TenSanPham)values (?,?,?,?,?,?,?)";
     static private String Delete = "delete from SanPham where MaSanPham like ?";
     static private String Update = " update SanPham set ngayNhapHang = ?,GiaTien = ?,Mota = ?, TheTich = ?, soLuong = ?, TenSP = ? where MaSanPham like ?";
     static private String Data = "select * from SanPham";
-    static private String Search = "select * from SanPham where MaSanPham like ?";
+    static private String Search = "select * from SanPham where MaSanPham like %?%";
     static private List<SanPham> list = new ArrayList<>();
 
     static private List<SanPham> select(String sql, Object... args) {
@@ -90,8 +90,10 @@ public class SanPham_Dao extends Constructure<SanPham> {
     }
 
     @Override
-    public List<SanPham> Search(SanPham enity) {
-        return select(Search, enity.getMaSP());
+    public List<SanPham> Search(String enity) {//"%"+enity+"%"
+        String search = "select * from SanPham where MaSanPham like ?";
+        return select(search,"%"+enity+"%");
+        
     }
 
     

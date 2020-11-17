@@ -9,10 +9,10 @@ import java.util.List;
  *
  * @author Home
  */
-public abstract  class Constructure <EnityType> {
+public abstract  class Constructure <EnityType, type > {
     public abstract void Insert(EnityType enity);
     public abstract void Delete(EnityType enity);
     public abstract void Update(EnityType enity);
     public abstract List<EnityType> Data();
-    public abstract List<EnityType> Search(EnityType enity);
+    public abstract List<EnityType> Search(type type);
 }
