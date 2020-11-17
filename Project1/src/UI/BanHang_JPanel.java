@@ -359,9 +359,8 @@ public class BanHang_JPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void table_SPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table_SPMouseClicked
-        if(evt.getClickCount() == 1){
-//            AddSP();
-            System.out.println(table_SP.getSelectedRow());
+        if(evt.getClickCount() == 2){
+            AddSP();
         }
     }//GEN-LAST:event_table_SPMouseClicked
 
@@ -405,6 +404,8 @@ public class BanHang_JPanel extends javax.swing.JPanel {
     
     List<SanPham> list_sp;
     List<DichVu> list_dv;
+    List<SanPham> GH_list_sp;
+    List<DichVu> GH_list_dv;
     SanPham_Dao dao_sp = new SanPham_Dao();
     DichVu_Dao dao_dv = new DichVu_Dao();
     
@@ -455,10 +456,11 @@ public class BanHang_JPanel extends javax.swing.JPanel {
     
     void AddCart(){
         DefaultTableModel model = (DefaultTableModel) table_GH.getModel();
-        list_GH = new ArrayList<>();
-        for (SanPham gh : list_sp) {
-            model.addRow(new Object[]{gh.getMaSP(), gh.getTenSP(), gh.getSoLuong(), gh.getGiaTien()});
+        model.setRowCount(0);
+        for (GioHang gh : list_GH) {
+            model.addRow(new Object[]{gh.getMa(), gh.getTen(), gh.getSoLuong(), gh.getGia()});
         }
+        
 //        model.addRow(new Object[]{Ma, Ten, SoLuong, DonGia});
     }
     void AddList_GH(String Ma, String Ten, int  SoLuong, double DonGia){
@@ -468,13 +470,14 @@ public class BanHang_JPanel extends javax.swing.JPanel {
     }
     void AddSP(){
         int row = table_SP.getSelectedRow();
-        System.out.println(row);
+        
         String Ma = String.valueOf(table_SP.getValueAt(row, 0));
         String Ten = String.valueOf(table_SP.getValueAt(row, 1));
         int SoLuong = Integer.valueOf(String.valueOf(table_SP.getValueAt(row, 2)));
-        Double DonGia = Double.valueOf(String.valueOf(table_SP.getValueAt(row, 2)));
-        
-        AddList_GH(Ma, Ten, row, row);
+        System.out.println(SoLuong);
+        Double DonGia = Double.valueOf(String.valueOf(table_SP.getValueAt(row, 3)));
+        System.out.println(DonGia);
+        AddList_GH(Ma, Ten, SoLuong, DonGia);
         
 //        AddCart(Ma, Ten, SoLuong, DonGia);
     }
@@ -482,8 +485,11 @@ public class BanHang_JPanel extends javax.swing.JPanel {
         int row = table_DV.getSelectedRow();
         String Ma = String.valueOf(table_DV.getValueAt(row, 0));
         String Ten = String.valueOf(table_DV.getValueAt(row, 1));
-        String SoLuong = String.valueOf("1");
-        String DonGia = String.valueOf(table_DV.getValueAt(row, 2));
+        int SoLuong = Integer.valueOf("1");
+        double DonGia = Double.valueOf(String.valueOf(table_DV.getValueAt(row, 2)));
+        AddList_GH(Ma, Ten, SoLuong, DonGia);
+        AddCart();
+        
 //        AddCart(Ma, Ten, SoLuong, DonGia);
     }
     
