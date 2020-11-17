@@ -72,7 +72,8 @@ create table hoadon(
 maHoaDon varchar(20) not null primary key,	
 MaKH varchar(20) not null,	
 Ghichu nvarchar(30) not null,
-manv varchar(20) not null	
+manv varchar(20) not null,
+ngayban date default getdate()	
 )	
 go
 
@@ -152,17 +153,17 @@ go
 --
 
 
-insert into hoadon(maHoaDon,MaKH,ghichu,manv)
-values ('hd1','kh1','ghichu1','khoa'),
-       ('hd2','kh2','ghichu2','khoa'),
-	   ('hd3','kh3','ghichu3','khoa'),
-	   ('hd4','kh4','ghichu4','khoa'),
-       ('hd5','kh5','ghichu5','khoa'),
-	   ('hd6','kh6','ghichu6','khoa'),
-	   ('hd7','kh7','ghichu7','khoa'),
-       ('hd8','kh8','ghichu8','khoa'),
-	   ('hd9','kh9','ghichu9','khoa'),
-	   ('hd10','kh10','ghichu10','khoa')
+insert into hoadon(maHoaDon,MaKH,ghichu,manv,ngayban)
+values ('hd1','kh1','ghichu1','khoa',''),
+       ('hd2','kh2','ghichu2','khoa',''),
+	   ('hd3','kh3','ghichu3','khoa',''),
+	   ('hd4','kh4','ghichu4','khoa',''),
+       ('hd5','kh5','ghichu5','khoa',''),
+	   ('hd6','kh6','ghichu6','khoa',''),
+	   ('hd7','kh7','ghichu7','khoa',''),
+       ('hd8','kh8','ghichu8','khoa',''),
+	   ('hd9','kh9','ghichu9','khoa',''),
+	   ('hd10','kh10','ghichu10','khoa','')
 go
 --
 
@@ -183,16 +184,16 @@ go
 
 
 insert into sanpham(MaSanPham,TenSanPham,ngayNhapHang,GiaTien,Mota,TheTich,soLuong)
- values ('001',N'vỏ xe','9/1/2020',5000000,N'màu đen',1.5,10),
-        ('002',N'ruột xe','9/1/2020',800000,N'nhiều loại',0.5,10),
-		('003',N'kính xe','9/1/2020',1000000,N'nhiều loại',1,10),
-		('004',N'bánh xe','9/1/2020',5000000,N'nhiều loại',1.5,10),
+ values ('001',N'vỏ xe','9/1/2020',50000,N'màu đen',1.5,10),
+        ('002',N'ruột xe','9/1/2020',80000,N'nhiều loại',0.5,10),
+		('003',N'kính xe','9/1/2020',10000,N'nhiều loại',1,10),
+		('004',N'bánh xe','9/1/2020',50000,N'nhiều loại',1.5,10),
         ('005',N'dàn áo xe','9/1/2020',800000,N'nhiều loại',0.5,10),
-		('006',N'nhớt xe','9/1/2020',1000000,N'nhiều loại',1,10),
-		('007',N'ốc xe','9/1/2020',5000000,N'nhiều loại',1.5,10),
-        ('008',N'đèn xe','9/1/2020',800000,N'nhiều loại',0.5,10),
-		('009',N'yên xe','9/1/2020',1000000,N'nhiều loại',1,10),
-		('0010',N'tay thắng xe','9/1/2020',5000000,N'nhiều loại',1.5,10)
+		('006',N'nhớt xe','9/1/2020',10000,N'nhiều loại',1,10),
+		('007',N'ốc xe','9/1/2020',50000,N'nhiều loại',1.5,10),
+        ('008',N'đèn xe','9/1/2020',8000,N'nhiều loại',0.5,10),
+		('009',N'yên xe','9/1/2020',10000,N'nhiều loại',1,10),
+		('0010',N'tay thắng xe','9/1/2020',50000,N'nhiều loại',1.5,10)
 
 go
 

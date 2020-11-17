@@ -64,7 +64,7 @@ public class BanHang_JPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        txtTongTien = new javax.swing.JTextField();
         jButton8 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
@@ -210,7 +210,7 @@ public class BanHang_JPanel extends javax.swing.JPanel {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Double.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Long.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false
@@ -222,6 +222,11 @@ public class BanHang_JPanel extends javax.swing.JPanel {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        table_GH.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                table_GHPropertyChange(evt);
             }
         });
         jScrollPane3.setViewportView(table_GH);
@@ -239,6 +244,8 @@ public class BanHang_JPanel extends javax.swing.JPanel {
         jLabel4.setText("Số lượng");
 
         jLabel6.setText("Thành tiền");
+
+        txtTongTien.setEditable(false);
 
         jButton8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton8.setForeground(new java.awt.Color(204, 0, 0));
@@ -279,7 +286,7 @@ public class BanHang_JPanel extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtTongTien, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -306,7 +313,7 @@ public class BanHang_JPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTongTien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -361,6 +368,7 @@ public class BanHang_JPanel extends javax.swing.JPanel {
     private void table_SPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table_SPMouseClicked
         if(evt.getClickCount() == 2){
             AddSP();
+             TongTien();
         }
     }//GEN-LAST:event_table_SPMouseClicked
 
@@ -369,6 +377,10 @@ public class BanHang_JPanel extends javax.swing.JPanel {
             AddDV();
         }
     }//GEN-LAST:event_table_DVMouseClicked
+
+    private void table_GHPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_table_GHPropertyChange
+       TongTien();
+    }//GEN-LAST:event_table_GHPropertyChange
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -394,10 +406,10 @@ public class BanHang_JPanel extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTable table_DV;
     private javax.swing.JTable table_GH;
     private javax.swing.JTable table_SP;
+    private javax.swing.JTextField txtTongTien;
     private javax.swing.JTextField txt_SearchSP;
     private javax.swing.JTextField txt_searchDV;
     // End of variables declaration//GEN-END:variables
@@ -491,6 +503,14 @@ public class BanHang_JPanel extends javax.swing.JPanel {
         AddCart();
         
 //        AddCart(Ma, Ten, SoLuong, DonGia);
+    }
+    void TongTien(){
+        double TongTien = 0;
+        for(int i = 0; i < table_GH.getRowCount();i++){
+            float tien = Float.valueOf(String.valueOf(table_GH.getValueAt(i, 3)));
+            TongTien += tien;
+        }
+        txtTongTien.setText(String.valueOf(TongTien));
     }
     
 }
