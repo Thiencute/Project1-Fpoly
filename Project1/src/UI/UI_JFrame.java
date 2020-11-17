@@ -28,7 +28,7 @@ public class UI_JFrame extends javax.swing.JFrame {
         initComponents();
         initColor();
         StartDongho();
-        Days();
+        
         
        
     }
@@ -52,8 +52,7 @@ public class UI_JFrame extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lblDayTime = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
         content = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -66,12 +65,20 @@ public class UI_JFrame extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel3.setBackground(new java.awt.Color(153, 255, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/hinh.png"))); // NOI18N
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 0, -1, -1));
 
         jLabel1.setText("Welcome:");
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 143, -1, -1));
 
+<<<<<<< HEAD
         txtUsername.setEditable(false);
+=======
+        jTextField1.setEditable(false);
+        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 143, 162, -1));
+>>>>>>> e588e93ba7e5df947dc4c479ed9b052a49b53125
 
         jButton2.setText("BÁN HÀNG");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -79,6 +86,7 @@ public class UI_JFrame extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 273, 231, 40));
 
         jButton3.setText("HOME");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -86,6 +94,7 @@ public class UI_JFrame extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 215, 231, 40));
 
         jButton4.setText("QUẢN LÍ");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -93,6 +102,7 @@ public class UI_JFrame extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
+        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 331, 231, 40));
 
         jButton5.setText("THỐNG KÊ");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -100,6 +110,7 @@ public class UI_JFrame extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
+        jPanel3.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 389, 231, 40));
 
         jButton6.setText("ĐĂNG XUẤT");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -107,10 +118,10 @@ public class UI_JFrame extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
+        jPanel3.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 447, 231, 40));
 
-        jLabel3.setText("NGÀY ");
-
-        jLabel4.setText("ĐỒNG HỒ");
+        lblDayTime.setText("ĐỒNG HỒ");
+        jPanel3.add(lblDayTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 740, -1, -1));
 
         jButton7.setText("THOÁT");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -118,6 +129,9 @@ public class UI_JFrame extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
+        jPanel3.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 505, 231, 40));
+=======
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -172,6 +186,7 @@ public class UI_JFrame extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addGap(28, 28, 28))
         );
+>>>>>>> 9dcca0620cbfbc48cb71178da4ad369a5d486d2d
 
         content.setLayout(new java.awt.CardLayout());
 
@@ -251,7 +266,8 @@ public class UI_JFrame extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        new ThongKe_JDialog(this, true).setVisible(true);
+        ThongKe_JPanel tk = new ThongKe_JPanel();
+        changeForm(tk);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -320,14 +336,17 @@ void changeForm(JPanel pn){
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+<<<<<<< HEAD
     private javax.swing.JTextField txtUsername;
+=======
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblDayTime;
+>>>>>>> e588e93ba7e5df947dc4c479ed9b052a49b53125
     // End of variables declaration//GEN-END:variables
     void initColor(){
         new Chao_JDialog(this, true).setVisible(true);
@@ -336,18 +355,18 @@ void changeForm(JPanel pn){
     }
 
     void StartDongho(){
-        SimpleDateFormat formater =new SimpleDateFormat("hh:mm:ss a");
+        SimpleDateFormat formater =new SimpleDateFormat("dd/MM/yyyy  hh:mm:ss a");
         new Timer(1000, (ActionEvent) -> {
-            jLabel4.setText(formater.format(new Date()));
+            lblDayTime.setText(formater.format(new Date()));
         }).start();
     }
-    void Days(){
-        Calendar cal = Calendar.getInstance();
-        cal.get(Calendar.YEAR);
-        cal.get(Calendar.MONTH);
-        cal.get(Calendar.DAY_OF_MONTH);
-        SimpleDateFormat formater = new SimpleDateFormat("dd//MM//yyyy");
-        jLabel3.setText(formater.format(new Date()));
-    }
+//    void Days(){
+//        Calendar cal = Calendar.getInstance();
+//        cal.get(Calendar.YEAR);
+//        cal.get(Calendar.MONTH);
+//        cal.get(Calendar.DAY_OF_MONTH);
+//        SimpleDateFormat formater = new SimpleDateFormat("");
+//        jLabel3.setText(formater.format(new Date()));
+//    }
     
 }
