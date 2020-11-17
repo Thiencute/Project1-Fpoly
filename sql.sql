@@ -71,7 +71,8 @@ go
 create table hoadon(	
 maHoaDon varchar(20) not null primary key,	
 MaKH varchar(20) not null,	
-Ghichu nvarchar(30) not null	
+Ghichu nvarchar(30) not null,
+manv varchar(20) not null	
 )	
 go
 
@@ -104,6 +105,9 @@ go
 alter table HoaDon
 add constraint FK_HD_KH Foreign key(MaKH) references KhachHang(MaKH) on delete no action on update cascade
 go
+alter table HoaDon
+add constraint FK_HD_NV Foreign key(MaNv) references NhanVien(MaNV) on delete no action on update cascade
+go
 alter table HDCT_DichVu
 add constraint FK_CTDV_DV Foreign key(MaDichVu) references DichVu(MaDichVu) on delete cascade on update cascade
 go
@@ -114,46 +118,6 @@ alter table HDCT_MuaBan
 add constraint FK_CTMB_SP Foreign key(MaSanPham) references SanPham(MaSanPham) on delete cascade on update cascade
 alter table HDCT_MuaBan 
 add constraint FK_CTMB_HD Foreign key(maHoaDon) references HoaDon(maHoaDon) on delete cascade on update cascade
-
-insert into khachhang(MaKH,MatKhau,DiaChi,SDT,GioiTinh,email,NgaySinh)
- values ('kh1','123','BenTre','034586134',1,'tam@gmail.com','9/11/2000'),
-        ('kh2','321','VinhLong','039985134',1,'hieu@gmail.com','4/1/2001'),
-		('kh3','124','BenTre','0383223034',0,'vi@gmail.com','4/5/2000'),
-		('kh4','125','TiengGiang','0325606134',1,'nghia@gmail.com','9/1/2000'),
-        ('kh5','322','KienGiang','071343134',1,'tuong@gmail.com','3/10/2001'),
-		('kh6','126','CanTho','038865654',1,'duy@gmail.com','2/8/2000'),
-		('kh7','127','TraVinh','078954134',0,'vy@gmail.com','1/1/2000'),
-        ('kh8','323','HauGiang','063153834',1,'nhan@gmail.com','3/1/2001'),
-		('kh9','129','SocTrang','094566354',1,'teo@gmail.com','2/9/2000'),
-		('kh10','111','','0399658134',1,'bang@gmail.com','9/1/2000')
-go
---
-
-
-insert into hoadon(maHoaDon,MaKH,ghichu)
-values ('hd1','kh1','ghichu1'),
-       ('hd2','kh2','ghichu2'),
-	   ('hd3','kh3','ghichu3'),
-	   ('hd4','kh4','ghichu4'),
-       ('hd5','kh5','ghichu5'),
-	   ('hd6','kh6','ghichu6'),
-	   ('hd7','kh7','ghichu7'),
-       ('hd8','kh8','ghichu8'),
-	   ('hd9','kh9','ghichu9'),
-	   ('hd10','kh10','ghichu10')
-go
---
-
-insert into dichvu(madichvu,giatien,mota,tendichvu) 
-values ('dv1',50000,'rua xe nha',N'Rửa xe'),
-('dv2',40000,'thay phu tung cho xe',N'Thay Phụ Tùng'),
-('dv3',50000,'tu van mua xe',N'Tư Vấn'),
- ('dv4',50000,'bao tri',N'Bảo Trì'),
-('dv5',40000,'cham soc khach hang',N'Chăm Sóc Khách Hàng'),
-('dv6',50000,'huong dan su dung',N'Hướng Dẫn')
-
-go
---
 
 
 
@@ -172,6 +136,48 @@ values ('cuong','123','HoChiMinh',N'cường','0374280429',1,5000000,0,'cudenc88
  ('vy','333','HoChiMinh',N'vy','038558229',1,5000000,0,'vy8888@gmail.com')
 
 go
+
+insert into khachhang(MaKH,MatKhau,DiaChi,SDT,GioiTinh,email,NgaySinh)
+ values ('kh1','123','BenTre','034586134',1,'tam@gmail.com','9/11/2000'),
+        ('kh2','321','VinhLong','039985134',1,'hieu@gmail.com','4/1/2001'),
+		('kh3','124','BenTre','0383223034',0,'vi@gmail.com','4/5/2000'),
+		('kh4','125','TiengGiang','0325606134',1,'nghia@gmail.com','9/1/2000'),
+        ('kh5','322','KienGiang','071343134',1,'tuong@gmail.com','3/10/2001'),
+		('kh6','126','CanTho','038865654',1,'duy@gmail.com','2/8/2000'),
+		('kh7','127','TraVinh','078954134',0,'vy@gmail.com','1/1/2000'),
+        ('kh8','323','HauGiang','063153834',1,'nhan@gmail.com','3/1/2001'),
+		('kh9','129','SocTrang','094566354',1,'teo@gmail.com','2/9/2000'),
+		('kh10','111','','0399658134',1,'bang@gmail.com','9/1/2000')
+go
+--
+
+
+insert into hoadon(maHoaDon,MaKH,ghichu,manv)
+values ('hd1','kh1','ghichu1','khoa'),
+       ('hd2','kh2','ghichu2','khoa'),
+	   ('hd3','kh3','ghichu3','khoa'),
+	   ('hd4','kh4','ghichu4','khoa'),
+       ('hd5','kh5','ghichu5','khoa'),
+	   ('hd6','kh6','ghichu6','khoa'),
+	   ('hd7','kh7','ghichu7','khoa'),
+       ('hd8','kh8','ghichu8','khoa'),
+	   ('hd9','kh9','ghichu9','khoa'),
+	   ('hd10','kh10','ghichu10','khoa')
+go
+--
+
+insert into dichvu(madichvu,giatien,mota,tendichvu) 
+values ('dv1',50000,'rua xe nha',N'Rửa xe'),
+('dv2',40000,'thay phu tung cho xe',N'Thay Phụ Tùng'),
+('dv3',50000,'tu van mua xe',N'Tư Vấn'),
+ ('dv4',50000,'bao tri',N'Bảo Trì'),
+('dv5',40000,'cham soc khach hang',N'Chăm Sóc Khách Hàng'),
+('dv6',50000,'huong dan su dung',N'Hướng Dẫn')
+
+go
+--
+
+
  --1 nam, 0 nữ
 
 

@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author Home
  */
-public class KhachHang_Dao extends Constructure<KhachHang>{
+public class KhachHang_Dao extends Constructure<KhachHang,String>{
 private String Insert = "";
     private String Delte = "";
     private String Update = "";
@@ -40,7 +40,7 @@ private String Insert = "";
     }
 
     @Override
-    public List<KhachHang> Search(KhachHang enity) {
+    public List<KhachHang> Search(String enity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

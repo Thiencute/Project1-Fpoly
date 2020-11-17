@@ -15,6 +15,13 @@ public class DichVu {
     private double GiaTien;
     private String MoTa;
 
+    public DichVu(String MaDV, String TenDV, double GiaTien, String MoTa) {
+        this.MaDV = MaDV;
+        this.TenDV = TenDV;
+        this.GiaTien = GiaTien;
+        this.MoTa = MoTa;
+    }
+
     public DichVu() {
     }
 

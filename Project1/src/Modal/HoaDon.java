@@ -13,6 +13,15 @@ public class HoaDon {
     private String MaHD;
     private String MaKH;
     private double TongTien;
+    private String manv;
+
+    public void setManv(String manv) {
+        this.manv = manv;
+    }
+
+    public String getManv() {
+        return manv;
+    }
 
     public HoaDon() {
     }

@@ -13,7 +13,7 @@ import java.util.*;
  *
  * @author Home
  */
-public class Kho_Dao extends Constructure<Kho>{
+public class Kho_Dao extends Constructure<Kho,String>{
 private String Insert = "";
     private String Delte = "";
     private String Update = "";
@@ -43,7 +43,7 @@ private String Insert = "";
     }
 
     @Override
-    public List<Kho> Search(Kho enity) {
+    public List<Kho> Search(String enity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
  

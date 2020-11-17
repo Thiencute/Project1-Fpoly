@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Home
  */
-public class HDCT_DV_Dao extends Constructure<HDCT_DV>{
+public class HDCT_DV_Dao extends Constructure<HDCT_DV,String>{
     private String Insert = "";
     private String Delte = "";
     private String Update = "";
@@ -41,7 +41,7 @@ public class HDCT_DV_Dao extends Constructure<HDCT_DV>{
     }
 
     @Override
-    public List<HDCT_DV> Search(HDCT_DV enity) {
+    public List<HDCT_DV> Search(String enity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

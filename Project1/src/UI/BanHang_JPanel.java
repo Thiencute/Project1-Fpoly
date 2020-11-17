@@ -6,6 +6,16 @@
 
 package UI;
 
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import DAO.SanPham_Dao;
+import DAO.DichVu_Dao;
+import Modal.DichVu;
+import Modal.GioHang;
+import Modal.SanPham;
+import java.util.ArrayList;
+import jdk.jshell.spi.SPIResolutionException;
+
 /**
  *
  * @author admin
@@ -15,8 +25,11 @@ public class BanHang_JPanel extends javax.swing.JPanel {
     /** Creates new form BanHang_JPanel */
     public BanHang_JPanel() {
         initComponents();
+        init();
     }
 
+    SanPham_Dao sp_dao = new SanPham_Dao();
+    DichVu_Dao dv_dao = new DichVu_Dao();
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -33,17 +46,17 @@ public class BanHang_JPanel extends javax.swing.JPanel {
         SanPham = new javax.swing.JTabbedPane();
         dsDichVu = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
-        jTextField8 = new javax.swing.JTextField();
+        table_SP = new javax.swing.JTable();
+        txt_SearchSP = new javax.swing.JTextField();
         jButton9 = new javax.swing.JButton();
         dsSanPham = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
-        jTextField7 = new javax.swing.JTextField();
+        table_DV = new javax.swing.JTable();
+        txt_searchDV = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        table_GH = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -64,27 +77,48 @@ public class BanHang_JPanel extends javax.swing.JPanel {
         SanPham.setBackground(new java.awt.Color(204, 204, 255));
         SanPham.setOpaque(true);
 
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+        table_SP.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Mã SP", "Tên SP", "Số lượng", "Đơn giá"
             }
-        ));
-        jScrollPane5.setViewportView(jTable5);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        table_SP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                table_SPMouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(table_SP);
+        if (table_SP.getColumnModel().getColumnCount() > 0) {
+            table_SP.getColumnModel().getColumn(0).setResizable(false);
+            table_SP.getColumnModel().getColumn(1).setResizable(false);
+            table_SP.getColumnModel().getColumn(2).setResizable(false);
+            table_SP.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         jButton9.setText("Search");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout dsDichVuLayout = new javax.swing.GroupLayout(dsDichVu);
         dsDichVu.setLayout(dsDichVuLayout);
         dsDichVuLayout.setHorizontalGroup(
             dsDichVuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dsDichVuLayout.createSequentialGroup()
-                .addComponent(jTextField8)
+                .addComponent(txt_SearchSP)
                 .addGap(18, 18, 18)
                 .addComponent(jButton9)
                 .addContainerGap())
@@ -95,7 +129,7 @@ public class BanHang_JPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dsDichVuLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(dsDichVuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_SearchSP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton9))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 836, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -104,27 +138,48 @@ public class BanHang_JPanel extends javax.swing.JPanel {
 
         SanPham.addTab("Danh sách sản phẩm", dsDichVu);
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        table_DV.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Mã SP", "Tên SP", "Số lượng", "Đơn giá"
+                "Mã Dịch Vụ", "Tên Tên Dịch Vụ", "Đơn Giá", "Ghi Chú"
             }
-        ));
-        jScrollPane4.setViewportView(jTable4);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        table_DV.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                table_DVMouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(table_DV);
+        if (table_DV.getColumnModel().getColumnCount() > 0) {
+            table_DV.getColumnModel().getColumn(0).setResizable(false);
+            table_DV.getColumnModel().getColumn(1).setResizable(false);
+            table_DV.getColumnModel().getColumn(2).setResizable(false);
+            table_DV.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         jButton7.setText("Search");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout dsSanPhamLayout = new javax.swing.GroupLayout(dsSanPham);
         dsSanPham.setLayout(dsSanPhamLayout);
         dsSanPhamLayout.setHorizontalGroup(
             dsSanPhamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dsSanPhamLayout.createSequentialGroup()
-                .addComponent(jTextField7)
+                .addComponent(txt_searchDV)
                 .addGap(18, 18, 18)
                 .addComponent(jButton7)
                 .addContainerGap())
@@ -135,7 +190,7 @@ public class BanHang_JPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dsSanPhamLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(dsSanPhamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_searchDV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton7))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 836, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -146,18 +201,36 @@ public class BanHang_JPanel extends javax.swing.JPanel {
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 255));
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        table_GH.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Mã SP", "Tên SP", "Số lượng", "Đơn giá"
             }
-        ));
-        jScrollPane3.setViewportView(jTable3);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Double.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(table_GH);
+        if (table_GH.getColumnModel().getColumnCount() > 0) {
+            table_GH.getColumnModel().getColumn(0).setResizable(false);
+            table_GH.getColumnModel().getColumn(1).setResizable(false);
+            table_GH.getColumnModel().getColumn(2).setResizable(false);
+            table_GH.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         jLabel2.setText("Mã sản phẩm");
 
@@ -277,6 +350,26 @@ public class BanHang_JPanel extends javax.swing.JPanel {
         new ThanhToan_JDialog(new UI_JFrame(), true).setVisible(true);;
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        searchSP();
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        searchDV();
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void table_SPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table_SPMouseClicked
+        if(evt.getClickCount() == 2){
+            AddSP();
+        }
+    }//GEN-LAST:event_table_SPMouseClicked
+
+    private void table_DVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table_DVMouseClicked
+        if(evt.getClickCount() == 2){
+            AddDV();
+        }
+    }//GEN-LAST:event_table_DVMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane SanPham;
@@ -298,15 +391,106 @@ public class BanHang_JPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JTable jTable5;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTable table_DV;
+    private javax.swing.JTable table_GH;
+    private javax.swing.JTable table_SP;
+    private javax.swing.JTextField txt_SearchSP;
+    private javax.swing.JTextField txt_searchDV;
     // End of variables declaration//GEN-END:variables
-
+    
+    List<SanPham> list_sp;
+    List<DichVu> list_dv;
+    List<SanPham> GH_list_sp;
+    List<DichVu> GH_list_dv;
+    SanPham_Dao dao_sp = new SanPham_Dao();
+    DichVu_Dao dao_dv = new DichVu_Dao();
+    
+    private void init() {
+        DataGH();
+        DataSP();
+    }
+    void DataSP(){
+        list_sp = sp_dao.Data();
+        modelSP(list_sp);
+        System.out.println(list_sp.size());
+    }
+    void modelSP(List<SanPham> list){
+        DefaultTableModel model = (DefaultTableModel) table_SP.getModel();
+        model.setRowCount(0);
+        
+        for (SanPham sp : list) {
+            model.addRow(new Object[]{sp.getMaSP(), sp.getTenSP(), sp.getSoLuong(), sp.getGiaTien()});
+        }
+    }
+    void DataGH(){
+        list_dv = dv_dao.Data();
+         modelDV(list_dv);
+    }
+    void modelDV(List<DichVu> list){
+        
+        DefaultTableModel model = (DefaultTableModel) table_DV.getModel();
+        model.setRowCount(0);
+        
+        for (DichVu dv : list) {
+            model.addRow(new Object[]{dv.getMaDV(), dv.getTenDV(), dv.getGiaTien(), dv.getMoTa()});
+        }
+    }
+    void searchSP(){
+        String search = txt_SearchSP.getText();
+        list_sp = dao_sp.Search(search);
+        modelSP(list_sp);
+    }
+    void searchDV(){
+        String search = txt_searchDV.getText();
+        list_dv = dao_dv.Search(search);
+        modelSP(list_sp);
+    }
+    
+    // Tương Tác Giỏ Hàng
+    List<GioHang> list_GH = new ArrayList<>();
+    
+    
+    void AddCart(){
+        DefaultTableModel model = (DefaultTableModel) table_GH.getModel();
+        model.setRowCount(0);
+        for (GioHang gh : list_GH) {
+            model.addRow(new Object[]{gh.getMa(), gh.getTen(), gh.getSoLuong(), gh.getGia()});
+        }
+        
+//        model.addRow(new Object[]{Ma, Ten, SoLuong, DonGia});
+    }
+    void AddList_GH(String Ma, String Ten, int  SoLuong, double DonGia){
+        list_GH.add(new GioHang(Ma, Ten, SoLuong, DonGia));
+        
+        AddCart();
+    }
+    void AddSP(){
+        int row = table_SP.getSelectedRow();
+        
+        String Ma = String.valueOf(table_SP.getValueAt(row, 0));
+        String Ten = String.valueOf(table_SP.getValueAt(row, 1));
+        int SoLuong = Integer.valueOf(String.valueOf(table_SP.getValueAt(row, 2)));
+        System.out.println(SoLuong);
+        Double DonGia = Double.valueOf(String.valueOf(table_SP.getValueAt(row, 3)));
+        System.out.println(DonGia);
+        AddList_GH(Ma, Ten, SoLuong, DonGia);
+        
+//        AddCart(Ma, Ten, SoLuong, DonGia);
+    }
+    void AddDV(){
+        int row = table_DV.getSelectedRow();
+        String Ma = String.valueOf(table_DV.getValueAt(row, 0));
+        String Ten = String.valueOf(table_DV.getValueAt(row, 1));
+        int SoLuong = Integer.valueOf("1");
+        double DonGia = Double.valueOf(String.valueOf(table_DV.getValueAt(row, 2)));
+        AddList_GH(Ma, Ten, SoLuong, DonGia);
+        AddCart();
+        
+//        AddCart(Ma, Ten, SoLuong, DonGia);
+    }
+    
 }
