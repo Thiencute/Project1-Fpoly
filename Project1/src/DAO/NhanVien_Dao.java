@@ -59,6 +59,7 @@ public class NhanVien_Dao extends Constructure<NhanVien,String>{
       nv.setTenNV(rs.getString("TenNV"));
       nv.setGioiTinh((rs.getInt("GioiTinh")==1)); //Nam = 1 ,Nữ =0
       nv.setAddress(rs.getString("DiaChi"));
+      nv.setEmail(rs.getString("Email"));
       nv.setLuong(rs.getDouble("luong"));
       nv.setSDT(rs.getString("SDT"));
       nv.setVaitro((rs.getInt("VaiTro")==1)); // 1 là quản lý 2 là nhân viên
