@@ -63,6 +63,7 @@ public class ConnectSQL {
                  
                 }
                 catch (SQLException e) {
+                    System.out.println("loi resultset");
                      throw new RuntimeException(e);
                                         }
  }
