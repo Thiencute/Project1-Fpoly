@@ -192,15 +192,16 @@ public class UI_JFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    BanHang_JPanel bh = new BanHang_JPanel();
-            
+    
+         BanHang_JPanel bh = new BanHang_JPanel();   
     private void btnBanHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBanHangActionPerformed
+       
         changeForm(bh);
     }//GEN-LAST:event_btnBanHangActionPerformed
-
+    QuanLi_JPanel ql = new QuanLi_JPanel();
     private void btnQuanLiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuanLiActionPerformed
         // TODO add your handling code here:
-        QuanLi_JPanel ql = new QuanLi_JPanel();
+        
         changeForm(ql);
         
     }//GEN-LAST:event_btnQuanLiActionPerformed
@@ -287,7 +288,7 @@ void changeForm(JPanel pn){
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
     void initColor(){
-        new Chao_JDialog(this, true).setVisible(true);
+//        new Chao_JDialog(this, true).setVisible(true);
       new DangNhap_JDialog(this, true).setVisible(true);
             setLocationRelativeTo(null);
     }

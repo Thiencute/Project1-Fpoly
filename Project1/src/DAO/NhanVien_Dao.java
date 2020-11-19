@@ -25,7 +25,7 @@ private Double Luong;
     
     */
 public class NhanVien_Dao extends Constructure<NhanVien,String>{
-   static  private String Insert = "insert into nhanvien(MaNV,MatKhau,TenNV,SDT,luong,vaitro,email,DiaChi,GioiTinh)values (?,?,?,?,?,?,?,?,?)";
+   static  private String Insert = "insert into nhanvien(MaNV,MatKhau,TenNV,SDT,luong,vaitro,email,GioiTinh,DiaChi)values (?,?,?,?,?,?,?,?,?)";
    static  private String Delete = "delete from nhanvien where MaNV like ?";
    static  private String Update = "update NhanVien set MatKhau = ?,TenNV = ?, diachi = ?, SDT = ?, luong = ?, vaitro = ?, email = ?, GioiTinh = ? where MaNV like ?";
    static  private String Data = "select * from nhanvien";
@@ -68,7 +68,7 @@ public class NhanVien_Dao extends Constructure<NhanVien,String>{
     //insert into nhanvien(MaNV,MatKhau,TenNV,SDT,luong,vaitro,email,DiaChi)
     @Override
     public void Insert(NhanVien enity) {
-        ConnectSQL.excuteUpdate(Insert, enity.getMaNV(),enity.getMatKhau(),enity.getTenNV(),enity.getAddress(),enity.getSDT(),enity.getLuong(),enity.isVaitro()?1:0,enity.getEmail(), enity.isGioiTinh()?1:2);
+        ConnectSQL.excuteUpdate(Insert, enity.getMaNV(),enity.getMatKhau(),enity.getTenNV(),enity.getSDT(),enity.getLuong(),enity.isVaitro()?1:0,enity.getEmail(), enity.isGioiTinh()?1:0,enity.getAddress());
     }
 
     @Override
@@ -78,7 +78,8 @@ public class NhanVien_Dao extends Constructure<NhanVien,String>{
     //update NhanVien set MatKhau = ?,TenNV = ?, diachi = ?, SDT = ?, luong = ?, vaitro = ?, email = ?, GioiTinh = ? where MaNV like ?";
     @Override
     public void Update(NhanVien enity) {
-        ConnectSQL.excuteUpdate(Update, enity.getMatKhau(), enity.getTenNV(), enity.getAddress(), enity.getSDT(), enity.getLuong(), enity.isVaitro()?1:0,enity.getEmail(), enity.isGioiTinh()?1:2,enity.getMaNV());
+        ConnectSQL.excuteUpdate(Update, enity.getMatKhau(), enity.getTenNV(),enity.getAddress(),enity.getSDT(), enity.getLuong(), enity.isVaitro()?1:0,enity.getEmail(), enity.isGioiTinh()?1:0,enity.getMaNV());
+         
     }
 
     @Override
