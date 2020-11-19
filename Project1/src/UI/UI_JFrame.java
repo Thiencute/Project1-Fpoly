@@ -49,6 +49,16 @@ public class UI_JFrame extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
+<<<<<<< HEAD
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
+=======
         btnBanHang = new javax.swing.JButton();
         btnHome = new javax.swing.JButton();
         btnQuanLi = new javax.swing.JButton();
@@ -56,6 +66,7 @@ public class UI_JFrame extends javax.swing.JFrame {
         btnDangXuat = new javax.swing.JButton();
         lblDayTime = new javax.swing.JLabel();
         btnThoat = new javax.swing.JButton();
+>>>>>>> cbe7fd1ef849b9650ffdc1fd0be8e20dc7341559
         content = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -76,7 +87,10 @@ public class UI_JFrame extends javax.swing.JFrame {
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 143, -1, -1));
 
         txtUsername.setEditable(false);
+<<<<<<< HEAD
+=======
         jPanel3.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 143, 162, -1));
+>>>>>>> cbe7fd1ef849b9650ffdc1fd0be8e20dc7341559
 
         btnBanHang.setText("BÁN HÀNG");
         btnBanHang.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +141,64 @@ public class UI_JFrame extends javax.swing.JFrame {
                 btnThoatActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(0, 44, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(txtUsername)
+                        .addContainerGap())))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addGap(42, 42, 42)
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jLabel5)
+                .addGap(15, 15, 15)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(52, 52, 52)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addGap(28, 28, 28))
+        );
+=======
         jPanel3.add(btnThoat, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 505, 231, 40));
+>>>>>>> cbe7fd1ef849b9650ffdc1fd0be8e20dc7341559
 
         content.setLayout(new java.awt.CardLayout());
 
@@ -192,10 +263,22 @@ public class UI_JFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
     
          BanHang_JPanel bh = new BanHang_JPanel();   
     private void btnBanHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBanHangActionPerformed
        
+=======
+    BanHang_JPanel bh = new BanHang_JPanel();
+<<<<<<< HEAD
+            QuanLi_JPanel ql = new QuanLi_JPanel();
+            ThongKe_Panel tk = new ThongKe_Panel();
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+=======
+            
+    private void btnBanHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBanHangActionPerformed
+>>>>>>> cbe7fd1ef849b9650ffdc1fd0be8e20dc7341559
+>>>>>>> c0e358c7b5835a3e56465b91ff5659c6f32101ad
         changeForm(bh);
     }//GEN-LAST:event_btnBanHangActionPerformed
     QuanLi_JPanel ql = new QuanLi_JPanel();
@@ -206,10 +289,16 @@ public class UI_JFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnQuanLiActionPerformed
 
+<<<<<<< HEAD
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        changeForm(tk);
+    }//GEN-LAST:event_jButton5ActionPerformed
+=======
     private void btnThongKeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThongKeActionPerformed
         // TODO add your handling code here:
         new ThongKe_JDialog(this, true).setVisible(true);
     }//GEN-LAST:event_btnThongKeActionPerformed
+>>>>>>> cbe7fd1ef849b9650ffdc1fd0be8e20dc7341559
 
     private void btnDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangXuatActionPerformed
         // TODO add your handling code here:
@@ -284,7 +373,10 @@ void changeForm(JPanel pn){
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+<<<<<<< HEAD
+=======
     private javax.swing.JLabel lblDayTime;
+>>>>>>> cbe7fd1ef849b9650ffdc1fd0be8e20dc7341559
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
     void initColor(){
