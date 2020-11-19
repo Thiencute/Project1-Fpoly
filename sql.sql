@@ -107,15 +107,15 @@ go
 alter table KhoChiTiet
 add constraint FK_KCT_K Foreign key(MaKho) references Kho(MaKho) on delete no action on update cascade
 go
+alter table KhoChiTiet
+add constraint FK_KCT_SP  Foreign key(MaSanPham) references SanPham(MaSanPham)  on delete no action on update cascade
+go
+
+go
 alter table NhaCungCap
 add constraint FK_NCC_SP Foreign key(MaSanPham) references SanPham(MaSanPham)  on delete no action on update cascade
 go
-alter table HoaDon
-add constraint FK_HD_KH Foreign key(MaKH) references KhachHang(MaKH) on delete no action on update cascade
-go
-alter table HoaDon
-add constraint FK_HD_NV Foreign key(MaNv) references NhanVien(MaNV) on delete no action on update cascade
-go
+
 alter table HDCT_DichVu
 add constraint FK_CTDV_DV Foreign key(MaDichVu) references DichVu(MaDichVu) on delete cascade on update cascade
 go
@@ -124,10 +124,16 @@ add constraint FK_CTDV_HD Foreign key(maHoaDon) references HoaDon(maHoaDon) on d
 go
 alter table HDCT_MuaBan 
 add constraint FK_CTMB_SP Foreign key(MaSanPham) references SanPham(MaSanPham) on delete cascade on update cascade
+go
 alter table HDCT_MuaBan 
 add constraint FK_CTMB_HD Foreign key(maHoaDon) references HoaDon(maHoaDon) on delete cascade on update cascade
-
-
+go
+alter table HoaDon
+add constraint FK_HD_KH Foreign key(MaKH) references KhachHang(MaKH) on delete no action on update cascade
+go
+alter table HoaDon
+add constraint FK_HD_NV Foreign key(MaNv) references NhanVien(MaNV) on delete no action on update cascade
+go
 
 --1 quanly + nam, 0nhanvien+ nữ
 
