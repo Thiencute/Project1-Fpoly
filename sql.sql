@@ -131,10 +131,32 @@ go
 alter table HDCT_MuaBan 
 add constraint FK_CTMB_HD Foreign key(maHoaDon) references HoaDon(maHoaDon) on delete cascade on update cascade
 go
+<<<<<<< HEAD
 
+=======
+alter table HoaDon
+add constraint FK_HD_KH Foreign key(MaKH) references KhachHang(MaKH) on delete no action on update cascade
+go
+alter table HoaDon
+add constraint FK_HD_NV Foreign key(MaNv) references NhanVien(MaNV) on delete no action on update cascade
+go
+>>>>>>> 9c2e1dd1bcf462f8ab630cb445a16b32929b5dda
 
 --1 quanly + nam, 0nhanvien+ nữ
 
+<<<<<<< HEAD
+insert into nhanvien(MaNV,MatKhau,TenNV,diachi,SDT,GioiTinh,luong,vaitro,email)
+values ('cuong','123',N'cường','HoChiMinh','0374280429',1,5000000,0,'cudenc8888@gmail.com'),
+ ('cuongkhoaito','456',N'cường khoai to','VungTau','0391234567',1,5000000,0,'cuong123@gmail.com'),
+ ('thiencute','789',N'thiện cute','DaLat','037489223',1,9000000,1,'thiencute@gmail.com'),
+ (' teo','323',N'tèo','HoChiMinh','037423652',1,5000000,0,'teo8888@gmail.com'),
+ ('vi','466',N'vi','HoChiMinh','0391288997',0,5000000,0,'vi@gmail.com'),
+ ('thy','889',N'thy','HoChiMinh','063489223',0,5000000,0,'thy@gmail.com'),
+ ('tam','163',N'tâm','HoChiMinh','0823690429',1,5000000,0,'tam8888@gmail.com'),
+ ('khoa','460',N'khoa','HoChiMinh','0989123354',1,5000000,0,'khoa@gmail.com'),
+ ('hieu','719',N'hiếu','DaLat','063248233',1,5000000,0,'hieu@gmail.com'),
+ ('vy','333',N'vy','HoChiMinh','038558229',1,5000000,0,'vy8888@gmail.com')
+=======
 insert into nhanvien(MaNV,MatKhau,diachi,TenNV,SDT,GioiTinh,luong,vaitro,email)
 values ('cuong','123','HoChiMinh',N'cường','0374280429',1,5000000,0,'cudenc8888@gmail.com'),
  ('cuongkhoaito','456','VungTau',N'cường khoai to','0391234567',1,5000000,0,'cuong123@gmail.com'),
@@ -146,6 +168,7 @@ values ('cuong','123','HoChiMinh',N'cường','0374280429',1,5000000,0,'cudenc88
  ('khoa','460','HoChiMinh',N'khoa','0989123354',1,5000000,0,'khoa@gmail.com'),
  ('hieu','719','DaLat',N'hiếu','063248233',1,5000000,0,'hieu@gmail.com'),
  ('vy','333','HoChiMinh',N'vy','038558229',1,5000000,0,'vy8888@gmail.com')
+>>>>>>> c0e358c7b5835a3e56465b91ff5659c6f32101ad
 
 go
 

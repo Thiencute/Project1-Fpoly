@@ -11,6 +11,7 @@ import DAO.Constructure;
 import DAO.Date;
 import Modal.SanPham;
 import DAO.Date;
+//import Modal.NhanVien;
 
 /**
  *
@@ -26,34 +27,51 @@ public class SanPham_Dao extends Constructure<SanPham, String> {
     static private List<SanPham> list = new ArrayList<>();
 
     static private List<SanPham> select(String sql, Object... args) {
-
+        list = new ArrayList<>();
         SanPham sp = new SanPham();
         try {
             ResultSet rs = null;
+            int a = 0;
             try {
                 rs = ConnectSQL.ResultSet(sql, args);
                 while (rs.next()) {
                     sp = Read(rs);
                     list.add(sp);
+                    a++;
                 }
+                System.out.println("a:" +a);
                 return list;
+//   SanPham a = new SanPham("aaa", "a", DAO.Date.StringtoDate("2020-2-2"), 10, 10, "hayvl", 10);
+//                SanPham s = new SanPham("aaa", "a", DAO.Date., 10, 10, "hayvl", 10);
+//                list.add(s);
+//    return list;
             } catch (Exception e) {
+                    System.out.println("Select loi");
                 throw new RuntimeException(e);
+                
             }
         } catch (Exception e) {
+            System.out.println("Select loi");
             throw new RuntimeException(e);
+            
         }
     }
-    static private SanPham Read(ResultSet rs) {
+    
+    public static void main(String[] args) {
+        List<SanPham> l = select(Data);
+        System.out.println(l.size());
+    }
+    static private SanPham Read(ResultSet rs)throws SQLException{
         SanPham sp = new SanPham();
         try {
-            sp.setMaSP(rs.getString("MaSanPham"));
+                sp.setMaSP(rs.getString("MaSanPham"));
                 sp.setTenSP(rs.getString("TenSanPham"));
-                sp.setTheTich(rs.getDouble("TheTich"));
-                sp.setGiaTien(rs.getDouble("GiaTien"));
                 sp.setNgayNhapHang(Date.DateForm(rs.getDate("ngayNhapHang")));
+                sp.setGiaTien(rs.getDouble("GiaTien"));            
                 sp.setMota(rs.getString("Mota"));
                 sp.setSoLuong(rs.getInt("soLuong"));
+                sp.setTheTich(rs.getDouble("TheTich"));
+           
 //                sp.setMaSP(rs.getString(1));
 //                sp.setTenSP(rs.getString(2));
 //                sp.setTheTich(rs.getDouble(6));
@@ -86,17 +104,27 @@ public class SanPham_Dao extends Constructure<SanPham, String> {
 
     @Override
     public List<SanPham> Data() {
+        
         return select(Data);
+//return null;
     }
 
-    @Override
     public List<SanPham> Search(String enity) {//"%"+enity+"%"
         String search = "select * from SanPham where MaSanPham like ?";
         return select(search,"%"+enity+"%");
+//        return select(Search, enity.getMaSP());
         
     }
+    public SanPham SelectById(String MaNV) {
 
-    
+        List<SanPham> list = select(Search, MaNV);
+        if (list.isEmpty()) {
+            return null;
+        }
+        return list.get(0);
+    }
+
+//    
     }
    
     

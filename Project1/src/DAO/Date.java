@@ -35,4 +35,10 @@ public class Date {
        DateForm(date);
        return DateForm(date).toString();
    }
+   public static java.util.Date StringtoDate (String date){
+       return new java.util.Date(date);
+   }
+   public static String DateFrom_To_String(java.util.Date date){
+       return String.valueOf(date);
+   }
 }

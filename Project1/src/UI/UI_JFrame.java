@@ -236,13 +236,29 @@ public class UI_JFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
+    
+         BanHang_JPanel bh = new BanHang_JPanel();   
+    private void btnBanHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBanHangActionPerformed
+       
+=======
     BanHang_JPanel bh = new BanHang_JPanel();
             
+<<<<<<< HEAD
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         changeForm(bh);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+=======
+    private void btnBanHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBanHangActionPerformed
+>>>>>>> cbe7fd1ef849b9650ffdc1fd0be8e20dc7341559
+>>>>>>> c0e358c7b5835a3e56465b91ff5659c6f32101ad
+        changeForm(bh);
+    }//GEN-LAST:event_btnBanHangActionPerformed
+    QuanLi_JPanel ql = new QuanLi_JPanel();
+    private void btnQuanLiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuanLiActionPerformed
+>>>>>>> 9c2e1dd1bcf462f8ab630cb445a16b32929b5dda
         // TODO add your handling code here:
         QuanLi_JPanel ql = new QuanLi_JPanel();
         changeForm(ql);
@@ -330,7 +346,7 @@ void changeForm(JPanel pn){
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
     void initColor(){
-        new Chao_JDialog(this, true).setVisible(true);
+//        new Chao_JDialog(this, true).setVisible(true);
       new DangNhap_JDialog(this, true).setVisible(true);
             setLocationRelativeTo(null);
     }
