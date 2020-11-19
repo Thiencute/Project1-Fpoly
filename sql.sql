@@ -76,16 +76,19 @@ maHoaDon varchar(20) not null primary key,
 MaKH varchar(20) not null,	
 Ghichu nvarchar(30) not null,
 manv varchar(20) not null,
-ngayban date default CONVERT(date, GETDATE())	
+ngayban date default CONVERT(date, GETDATE()),
+Foreign key(MaKH) references KhachHang(MaKH) on delete no action on update cascade,
+Foreign key(MaNv) references NhanVien(MaNV) on delete no action on update cascade
 )	
+/*
+alter table HoaDon
+add constraint FK_HD_KH Foreign key(MaKH) references KhachHang(MaKH) on delete no action on update cascade
 go
-select mahoadon,ngayban from hoadon
-
-select CONVERT(date, GETDATE()) 
-insert into hoadon(maHoaDon,MaKH,ghichu,manv,ngayban)
-values ('7','kh1','ghichu1','khoa','')
-
-
+alter table HoaDon
+add constraint FK_HD_NV Foreign key(MaNv) references NhanVien(MaNV) on delete no action on update cascade
+go
+*/
+go
 
 create table HDCT_DichVu(
 	maHDCT int IDENTITY (0,1) primary key not null,
@@ -107,15 +110,15 @@ go
 alter table KhoChiTiet
 add constraint FK_KCT_K Foreign key(MaKho) references Kho(MaKho) on delete no action on update cascade
 go
+alter table KhoChiTiet
+add constraint FK_KCT_SP  Foreign key(MaSanPham) references SanPham(MaSanPham)  on delete no action on update cascade
+go
+
+go
 alter table NhaCungCap
 add constraint FK_NCC_SP Foreign key(MaSanPham) references SanPham(MaSanPham)  on delete no action on update cascade
 go
-alter table HoaDon
-add constraint FK_HD_KH Foreign key(MaKH) references KhachHang(MaKH) on delete no action on update cascade
-go
-alter table HoaDon
-add constraint FK_HD_NV Foreign key(MaNv) references NhanVien(MaNV) on delete no action on update cascade
-go
+
 alter table HDCT_DichVu
 add constraint FK_CTDV_DV Foreign key(MaDichVu) references DichVu(MaDichVu) on delete cascade on update cascade
 go
@@ -124,9 +127,10 @@ add constraint FK_CTDV_HD Foreign key(maHoaDon) references HoaDon(maHoaDon) on d
 go
 alter table HDCT_MuaBan 
 add constraint FK_CTMB_SP Foreign key(MaSanPham) references SanPham(MaSanPham) on delete cascade on update cascade
+go
 alter table HDCT_MuaBan 
 add constraint FK_CTMB_HD Foreign key(maHoaDon) references HoaDon(maHoaDon) on delete cascade on update cascade
-
+go
 
 
 --1 quanly + nam, 0nhanvien+ nữ
@@ -231,16 +235,16 @@ values ('Kho1','50','Ho Chi Minh',N'chứa vỏ xe'),
 go
 --
 insert into KhoChiTiet(MaKho,MaSanPham,soLuong,GhiChu)
-values ('Kho1','001',10,'ghichu1'),
-       ('Kho2','002',10,'ghichu2'),
-	   ('Kho3','003',10,'ghichu3'),
-	   ('Kho4','004',10,'ghichu4'),
-       ('Kho5','005',10,'ghichu5'),
-	   ('Kho6','006',10,'ghichu6'),
-	   ('Kho7','007',10,'ghichu7'),
-       ('Kho8','008',10,'ghichu8'),
-	   ('Kho9','009',10,'ghichu9'),
-	   ('Kho10','0010',10,'ghichu10')
+values ('Kho1','nx1',10,'ghichu1'),
+       ('Kho2','nx1',10,'ghichu2'),
+	   ('Kho3','nx1',10,'ghichu3'),
+	   ('Kho4','bx1',10,'ghichu4'),
+       ('Kho5','bx1',10,'ghichu5'),
+	   ('Kho6','bx1',10,'ghichu6'),
+	   ('Kho7','kx1',10,'ghichu7'),
+       ('Kho8','kx1',10,'ghichu8'),
+	   ('Kho9','kx1',10,'ghichu9'),
+	   ('Kho10','kx1',10,'ghichu10')
 go
 
 --
@@ -264,7 +268,7 @@ values('hd1','dv1','aaa'),
 ('hd1','dv3','aaa'),
 ('hd4','dv4','aaa'),
 ('hd5','dv5','aaa')
-go
+go/*
 -- proc-
 --masp, ten sp, soluongdaban, tongtien
 create proc sp_ThongKeSanPham(@ngay date)
@@ -295,3 +299,4 @@ end
 
 --exec sp_ThongKeSanPham '2020'
 
+*/

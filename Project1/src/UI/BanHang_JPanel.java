@@ -428,6 +428,7 @@ public class BanHang_JPanel extends javax.swing.JPanel {
     void DataSP(){
         list_sp = sp_dao.Data();
         modelSP(list_sp);
+        System.out.println(list_sp.size());
     }
     void modelSP(List<SanPham> list){
         DefaultTableModel model = (DefaultTableModel) table_SP.getModel();
@@ -485,7 +486,9 @@ public class BanHang_JPanel extends javax.swing.JPanel {
         String Ma = String.valueOf(table_SP.getValueAt(row, 0));
         String Ten = String.valueOf(table_SP.getValueAt(row, 1));
         int SoLuong = Integer.valueOf(String.valueOf(table_SP.getValueAt(row, 2)));
+        System.out.println(SoLuong);
         Double DonGia = Double.valueOf(String.valueOf(table_SP.getValueAt(row, 3)));
+        System.out.println(DonGia);
         AddList_GH(Ma, Ten, SoLuong, DonGia);
         
 //        AddCart(Ma, Ten, SoLuong, DonGia);
