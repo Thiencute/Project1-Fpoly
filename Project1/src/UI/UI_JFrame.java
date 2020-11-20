@@ -248,9 +248,9 @@ public class UI_JFrame extends javax.swing.JFrame {
         changeForm(ql);
         
     }//GEN-LAST:event_jButton4ActionPerformed
-
+        ThongKe_Panel tk = new ThongKe_Panel();
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        changeForm(tk);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
