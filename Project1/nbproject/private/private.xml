@@ -2,8 +2,21 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <file>file:/D:/Fpoly/Project1/Project1-Fpoly/Project1/src/UI/ThongKe_Panel.java</file>
         </group>
+=======
+<<<<<<< HEAD
+        <group>
+            <file>file:/C:/Users/admin/OneDrive/Máy%20tính/FPT/duan1/Project1-Fpoly/Project1/src/UI/BanHang_JPanel.java</file>
+            <file>file:/C:/Users/admin/OneDrive/Máy%20tính/FPT/duan1/Project1-Fpoly/Project1/src/DAO/SanPham_Dao.java</file>
+            <file>file:/C:/Users/admin/OneDrive/Máy%20tính/FPT/duan1/Project1-Fpoly/Project1/src/UI/QuanLi_JPanel.java</file>
+            <file>file:/C:/Users/admin/OneDrive/Máy%20tính/FPT/duan1/Project1-Fpoly/Project1/src/UI/UI_JFrame.java</file>
+        </group>
+=======
+        <group/>
+>>>>>>> 5dc261b03d4202c656e2476ccca4268851a67bfe
+>>>>>>> 92e721d9cc3775a99c4f63ea598f972daf5c5499
     </open-files>
 </project-private>

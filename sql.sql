@@ -19,7 +19,7 @@ create table Nhanvien(
 go	
 create table khachhang(	
 	MaKH varchar(20) primary key not null,	
-	MatKhau varchar(20) not null,	
+	TenKH varchar(20) not null,	
 	DiaChi nvarchar(20) not null,	
 	SDT varchar(13) not null,	
 	GioiTinh bit,	
@@ -148,21 +148,34 @@ values ('cuong','123',N'cường','HoChiMinh','0374280429',1,5000000,0,'cudenc88
  ('hieu','719',N'hiếu','DaLat','063248233',1,5000000,0,'hieu@gmail.com'),
  ('vy','333',N'vy','HoChiMinh','038558229',1,5000000,0,'vy8888@gmail.com')
 
-insert into khachhang(MaKH,MatKhau,DiaChi,SDT,GioiTinh,email,NgaySinh)
- values ('kh1','123','BenTre','034586134',1,'tam@gmail.com','9/11/2000'),
-        ('kh2','321','VinhLong','039985134',1,'hieu@gmail.com','4/1/2001'),
-		('kh3','124','BenTre','0383223034',0,'vi@gmail.com','4/5/2000'),
-		('kh4','125','TiengGiang','0325606134',1,'nghia@gmail.com','9/1/2000'),
-        ('kh5','322','KienGiang','071343134',1,'tuong@gmail.com','3/10/2001'),
-		('kh6','126','CanTho','038865654',1,'duy@gmail.com','2/8/2000'),
-		('kh7','127','TraVinh','078954134',0,'vy@gmail.com','1/1/2000'),
-        ('kh8','323','HauGiang','063153834',1,'nhan@gmail.com','3/1/2001'),
-		('kh9','129','SocTrang','094566354',1,'teo@gmail.com','2/9/2000'),
-		('kh10','111','','0399658134',1,'bang@gmail.com','9/1/2000')
+insert into khachhang(MaKH,TenKH,DiaChi,SDT,GioiTinh,email,NgaySinh)
+ values ('kh1','Valne','BenTre','034586134',1,'tam@gmail.com','9/11/2000'),
+        ('kh2','Cuong','VinhLong','039985134',1,'hieu@gmail.com','4/1/2001'),
+		('kh3','Tien','BenTre','0383223034',0,'vi@gmail.com','4/5/2000'),
+		('kh4','Khoa','TiengGiang','0325606134',1,'nghia@gmail.com','9/1/2000'),
+        ('kh5','Thien','KienGiang','071343134',1,'tuong@gmail.com','3/10/2001'),
+		('kh6','Hoang','CanTho','038865654',1,'duy@gmail.com','2/8/2000'),
+		('kh7','Phuong','TraVinh','078954134',0,'vy@gmail.com','1/1/2000'),
+        ('kh8','Quan','HauGiang','063153834',1,'nhan@gmail.com','3/1/2001'),
+		('kh9','Trong','SocTrang','094566354',1,'teo@gmail.com','2/9/2000'),
+		('kh10','Duy','','0399658134',1,'bang@gmail.com','9/1/2000')
 go
 --
 
 
+<<<<<<< HEAD
+insert into hoadon(maHoaDon,MaKH,ghichu,manv,ngayban)
+values ('hd1','kh1','ghichu1','khoa',''),
+('hd2','kh2','ghichu2','khoa',''),
+	   ('hd3','kh3','ghichu3','khoa',''),
+	   ('hd4','kh4','ghichu4','khoa',''),
+       ('hd5','kh5','ghichu5','khoa',''),
+	   ('hd6','kh6','ghichu6','khoa',''),
+	   ('hd7','kh7','ghichu7','khoa',''),
+       ('hd8','kh8','ghichu8','khoa',''),
+	   ('hd9','kh9','ghichu9','khoa',''),
+	   ('hd10','kh10','ghichu10','khoa','')
+=======
 insert into hoadon(maHoaDon,MaKH,ghichu,manv,tongtien)
 values ('hd1','kh1','ghichu1','khoa',1234),
        ('hd2','kh2','ghichu2','khoa',1230),
@@ -174,6 +187,7 @@ values ('hd1','kh1','ghichu1','khoa',1234),
        ('hd8','kh8','ghichu8','khoa',1211),
 	   ('hd9','kh9','ghichu9','khoa',1000),
 	   ('hd10','kh10','ghichu10','khoa',1230)
+>>>>>>> 5dc261b03d4202c656e2476ccca4268851a67bfe
 go
 insert into hoadon(maHoaDon,MaKH,ghichu,manv,tongtien,ngayban)
 values ('hd11','kh1','ghichu1','khoa',1234,'2000-1-1'),
@@ -246,7 +260,7 @@ values ('Kho1','nx1',10,'ghichu1'),
        ('Kho5','bx1',10,'ghichu5'),
 	   ('Kho6','bx1',10,'ghichu6'),
 	   ('Kho7','kx1',10,'ghichu7'),
-       ('Kho8','kx1',10,'ghichu8'),
+('Kho8','kx1',10,'ghichu8'),
 	   ('Kho9','kx1',10,'ghichu9'),
 	   ('Kho10','kx1',10,'ghichu10')
 go
