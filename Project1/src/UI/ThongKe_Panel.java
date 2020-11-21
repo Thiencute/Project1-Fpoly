@@ -64,7 +64,7 @@ public class ThongKe_Panel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        content.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 22, -1, -1));
+        content.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jButton2.setText("Dịch Vụ");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -122,7 +122,7 @@ public class ThongKe_Panel extends javax.swing.JPanel {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
        chartDT();
     }//GEN-LAST:event_jButton3ActionPerformed
-
+    
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
        //tao chart
        List<ThongKe> list = ThongKeDao.DoanhThu();
