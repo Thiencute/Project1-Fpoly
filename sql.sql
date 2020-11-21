@@ -19,7 +19,7 @@ create table Nhanvien(
 go	
 create table khachhang(	
 	MaKH varchar(20) primary key not null,	
-	MatKhau varchar(20) not null,	
+	TenKH varchar(20) not null,	
 	DiaChi nvarchar(20) not null,	
 	SDT varchar(13) not null,	
 	GioiTinh bit,	
@@ -131,20 +131,18 @@ go
 alter table HDCT_MuaBan 
 add constraint FK_CTMB_HD Foreign key(maHoaDon) references HoaDon(maHoaDon) on delete cascade on update cascade
 go
-<<<<<<< HEAD
-
-=======
+/*
 alter table HoaDon
 add constraint FK_HD_KH Foreign key(MaKH) references KhachHang(MaKH) on delete no action on update cascade
 go
 alter table HoaDon
 add constraint FK_HD_NV Foreign key(MaNv) references NhanVien(MaNV) on delete no action on update cascade
 go
->>>>>>> 9c2e1dd1bcf462f8ab630cb445a16b32929b5dda
+*/
 
 --1 quanly + nam, 0nhanvien+ nữ
 
-<<<<<<< HEAD
+
 insert into nhanvien(MaNV,MatKhau,TenNV,diachi,SDT,GioiTinh,luong,vaitro,email)
 values ('cuong','123',N'cường','HoChiMinh','0374280429',1,5000000,0,'cudenc8888@gmail.com'),
  ('cuongkhoaito','456',N'cường khoai to','VungTau','0391234567',1,5000000,0,'cuong123@gmail.com'),
@@ -156,40 +154,25 @@ values ('cuong','123',N'cường','HoChiMinh','0374280429',1,5000000,0,'cudenc88
  ('khoa','460',N'khoa','HoChiMinh','0989123354',1,5000000,0,'khoa@gmail.com'),
  ('hieu','719',N'hiếu','DaLat','063248233',1,5000000,0,'hieu@gmail.com'),
  ('vy','333',N'vy','HoChiMinh','038558229',1,5000000,0,'vy8888@gmail.com')
-=======
-insert into nhanvien(MaNV,MatKhau,diachi,TenNV,SDT,GioiTinh,luong,vaitro,email)
-values ('cuong','123','HoChiMinh',N'cường','0374280429',1,5000000,0,'cudenc8888@gmail.com'),
- ('cuongkhoaito','456','VungTau',N'cường khoai to','0391234567',1,5000000,0,'cuong123@gmail.com'),
- ('thiencute','789','DaLat',N'thiện cute','037489223',1,9000000,1,'thiencute@gmail.com'),
- (' teo','323','HoChiMinh',N'tèo','037423652',1,5000000,0,'teo8888@gmail.com'),
- ('vi','466','HoChiMinh',N'vi','0391288997',0,5000000,0,'vi@gmail.com'),
- ('thy','889','HoChiMinh',N'thy','063489223',0,5000000,0,'thy@gmail.com'),
- ('tam','163','HoChiMinh',N'tâm','0823690429',1,5000000,0,'tam8888@gmail.com'),
- ('khoa','460','HoChiMinh',N'khoa','0989123354',1,5000000,0,'khoa@gmail.com'),
- ('hieu','719','DaLat',N'hiếu','063248233',1,5000000,0,'hieu@gmail.com'),
- ('vy','333','HoChiMinh',N'vy','038558229',1,5000000,0,'vy8888@gmail.com')
->>>>>>> c0e358c7b5835a3e56465b91ff5659c6f32101ad
 
-go
-
-insert into khachhang(MaKH,MatKhau,DiaChi,SDT,GioiTinh,email,NgaySinh)
- values ('kh1','123','BenTre','034586134',1,'tam@gmail.com','9/11/2000'),
-        ('kh2','321','VinhLong','039985134',1,'hieu@gmail.com','4/1/2001'),
-		('kh3','124','BenTre','0383223034',0,'vi@gmail.com','4/5/2000'),
-		('kh4','125','TiengGiang','0325606134',1,'nghia@gmail.com','9/1/2000'),
-        ('kh5','322','KienGiang','071343134',1,'tuong@gmail.com','3/10/2001'),
-		('kh6','126','CanTho','038865654',1,'duy@gmail.com','2/8/2000'),
-		('kh7','127','TraVinh','078954134',0,'vy@gmail.com','1/1/2000'),
-        ('kh8','323','HauGiang','063153834',1,'nhan@gmail.com','3/1/2001'),
-		('kh9','129','SocTrang','094566354',1,'teo@gmail.com','2/9/2000'),
-		('kh10','111','','0399658134',1,'bang@gmail.com','9/1/2000')
+insert into khachhang(MaKH,TenKH,DiaChi,SDT,GioiTinh,email,NgaySinh)
+ values ('kh1','Valne','BenTre','034586134',1,'tam@gmail.com','9/11/2000'),
+        ('kh2','Cuong','VinhLong','039985134',1,'hieu@gmail.com','4/1/2001'),
+		('kh3','Tien','BenTre','0383223034',0,'vi@gmail.com','4/5/2000'),
+		('kh4','Khoa','TiengGiang','0325606134',1,'nghia@gmail.com','9/1/2000'),
+        ('kh5','Thien','KienGiang','071343134',1,'tuong@gmail.com','3/10/2001'),
+		('kh6','Hoang','CanTho','038865654',1,'duy@gmail.com','2/8/2000'),
+		('kh7','Phuong','TraVinh','078954134',0,'vy@gmail.com','1/1/2000'),
+        ('kh8','Quan','HauGiang','063153834',1,'nhan@gmail.com','3/1/2001'),
+		('kh9','Trong','SocTrang','094566354',1,'teo@gmail.com','2/9/2000'),
+		('kh10','Duy','','0399658134',1,'bang@gmail.com','9/1/2000')
 go
 --
 
 
 insert into hoadon(maHoaDon,MaKH,ghichu,manv,ngayban)
 values ('hd1','kh1','ghichu1','khoa',''),
-       ('hd2','kh2','ghichu2','khoa',''),
+('hd2','kh2','ghichu2','khoa',''),
 	   ('hd3','kh3','ghichu3','khoa',''),
 	   ('hd4','kh4','ghichu4','khoa',''),
        ('hd5','kh5','ghichu5','khoa',''),
@@ -265,7 +248,7 @@ values ('Kho1','nx1',10,'ghichu1'),
        ('Kho5','bx1',10,'ghichu5'),
 	   ('Kho6','bx1',10,'ghichu6'),
 	   ('Kho7','kx1',10,'ghichu7'),
-       ('Kho8','kx1',10,'ghichu8'),
+('Kho8','kx1',10,'ghichu8'),
 	   ('Kho9','kx1',10,'ghichu9'),
 	   ('Kho10','kx1',10,'ghichu10')
 go

@@ -6,43 +6,78 @@
 package DAO;
 import DAO.Constructure;
 import Modal.KhachHang;
+import Modal.SanPham;
+import java.util.ArrayList;
 import java.util.List;
+import java.sql.*;
 /**
  *
  * @author Home
  */
 public class KhachHang_Dao extends Constructure<KhachHang,String>{
-private String Insert = "";
-    private String Delte = "";
-    private String Update = "";
-    private String Data = "";
-    private String Search = "";
+private String Insert = "insert into khachhang(MaKH,TenKH,DiaChi,SDT,GioiTinh,email,NgaySinh) values (?,?,?,?,?,?,?)";
+    private String Delte = "delete from khahhang where MaKH = ?";
+    private String Update = "update khachhang set TenKH = ?,DiaChi = ?,SDT = ?,GioiTinh = ?,email = ?,NgaySinh = ? where MaKH =?";
+    private String Data = "select * from khachhang";
+    private String Search = "select * from khachhang where MaKh = ?";
     private String data = "";
 
     @Override
     public void Insert(KhachHang enity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ConnectSQL.excuteUpdate(Insert,enity.getMaKH(),enity.getTenKh(),enity.getDiaChi(),enity.isGioiTinh()?1:0,enity.getEmail()
+        ,enity.getNgaySinh());
     }
 
     @Override
     public void Delete(KhachHang enity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ConnectSQL.excuteUpdate(Delte, enity.getMaKH());
     }
 
     @Override
     public void Update(KhachHang enity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ConnectSQL.excuteUpdate(Update, enity.getTenKh(),enity.getDiaChi(),enity.isGioiTinh()?1:0,enity.getEmail()
+        ,enity.getNgaySinh(), enity.getMaKH());
     }
 
     @Override
     public List<KhachHang> Data() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return select(Data);
     }
 
     @Override
     public List<KhachHang> Search(String enity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    public KhachHang SelectById(String MaNV) {
 
-    
+        List<KhachHang> list = select(Search, MaNV);
+        if (list.isEmpty()) {
+            return null;
+        }
+        return list.get(0);
+    }
+     private List<KhachHang> select(String sql, Object ... args ){
+        List<KhachHang> list = new ArrayList<>();      
+        try {
+            ResultSet rs = ConnectSQL.ResultSet(sql, args);
+            while(rs.next()){
+                KhachHang kh = new KhachHang();
+                kh.setMaKH(rs.getString("MaKH"));
+            kh.setTenKh(rs.getString("TenKh"));
+            kh.setDiaChi(rs.getString("DiaChi"));
+            kh.setSDT(rs.getString("SDT"));
+            kh.setGioiTinh(rs.getBoolean("GioiTinh"));
+            kh.setEmail(rs.getString("email"));
+            kh.setNgaySinh(rs.getString("NgaySinh"));
+            list.add(kh);
+            rs.getStatement().getConnection().close();        
+            }
+                    
+        } catch (Exception e) {
+            System.out.println("Loi khachhang");
+            throw new RuntimeException();
+        }    
+    return list;
+    }
+   
 }
