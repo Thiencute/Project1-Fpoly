@@ -74,20 +74,14 @@ go
 create table hoadon(	
 maHoaDon varchar(20) not null primary key,	
 MaKH varchar(20) not null,	
+tongtien money not null,
 Ghichu nvarchar(30) not null,
 manv varchar(20) not null,
 ngayban date default CONVERT(date, GETDATE()),
+
 Foreign key(MaKH) references KhachHang(MaKH) on delete no action on update cascade,
 Foreign key(MaNv) references NhanVien(MaNV) on delete no action on update cascade
 )	
-/*
-alter table HoaDon
-add constraint FK_HD_KH Foreign key(MaKH) references KhachHang(MaKH) on delete no action on update cascade
-go
-alter table HoaDon
-add constraint FK_HD_NV Foreign key(MaNv) references NhanVien(MaNV) on delete no action on update cascade
-go
-*/
 go
 
 create table HDCT_DichVu(
@@ -96,7 +90,6 @@ create table HDCT_DichVu(
 	maDichVu varchar(20) not null,
 	ghichu nvarchar(50) default N'Hoàn Thành đúng hạn'
 )
---select * from sanpham
 go
 
 create table HDCT_MuaBan(
@@ -170,6 +163,7 @@ go
 --
 
 
+<<<<<<< HEAD
 insert into hoadon(maHoaDon,MaKH,ghichu,manv,ngayban)
 values ('hd1','kh1','ghichu1','khoa',''),
 ('hd2','kh2','ghichu2','khoa',''),
@@ -181,7 +175,26 @@ values ('hd1','kh1','ghichu1','khoa',''),
        ('hd8','kh8','ghichu8','khoa',''),
 	   ('hd9','kh9','ghichu9','khoa',''),
 	   ('hd10','kh10','ghichu10','khoa','')
+=======
+insert into hoadon(maHoaDon,MaKH,ghichu,manv,tongtien)
+values ('hd1','kh1','ghichu1','khoa',1234),
+       ('hd2','kh2','ghichu2','khoa',1230),
+	   ('hd3','kh3','ghichu3','khoa',1266),
+	   ('hd4','kh4','ghichu4','khoa',1277),
+       ('hd5','kh5','ghichu5','khoa',1233),
+	   ('hd6','kh6','ghichu6','khoa',1230),
+	   ('hd7','kh7','ghichu7','khoa',1244),
+       ('hd8','kh8','ghichu8','khoa',1211),
+	   ('hd9','kh9','ghichu9','khoa',1000),
+	   ('hd10','kh10','ghichu10','khoa',1230)
+>>>>>>> 5dc261b03d4202c656e2476ccca4268851a67bfe
 go
+insert into hoadon(maHoaDon,MaKH,ghichu,manv,tongtien,ngayban)
+values ('hd11','kh1','ghichu1','khoa',1234,'2000-1-1'),
+       ('hd12','kh2','ghichu2','khoa',1230,'2000-2-1'),
+	   ('hd13','kh3','ghichu3','khoa',1266,'2000-3-1'),
+	   ('hd14','kh4','ghichu4','khoa',1277,'2000-4-1')
+	   go
 --select * from hoadon
 
 insert into dichvu(madichvu,giatien,mota,tendichvu) 
@@ -239,7 +252,6 @@ values ('Kho1','50','Ho Chi Minh',N'chứa vỏ xe'),
 	   ('Kho9','50','Ho Chi Minh',N'chứa yên xe'),
 	   ('Kho10','50','Ho Chi Minh',N'chứa tay thắng xe')
 go
---
 insert into KhoChiTiet(MaKho,MaSanPham,soLuong,GhiChu)
 values ('Kho1','nx1',10,'ghichu1'),
        ('Kho2','nx1',10,'ghichu2'),
@@ -253,14 +265,24 @@ values ('Kho1','nx1',10,'ghichu1'),
 	   ('Kho10','kx1',10,'ghichu10')
 go
 
---
+
 
 insert into HDCT_MuaBan(maHoaDon,maSanPham,soluong,ghichu)
 values('hd5','tx1',5,'aaa'),
 ('hd5','tx1',6,'aaa'),
 ('hd1','tx1',2,'aaa'),
 ('hd2','tx1',1,'aaa'),
-('hd4','tx1',10,'aaa')
+('hd4','tx1',10,'aaa'),
+('hd5','tx1',5,'aaa'),
+('hd5','kx1',6,'aaa'),
+('hd1','ox1',2,'aaa'),
+('hd2','ox1',1,'aaa'),
+('hd4','ox1',10,'aaa'),
+('hd4','ox1',10,'aaa'),
+('hd2','yx1',10,'aaa'),
+('hd2','ox1',10,'aaa'),
+('hd2','ox1',10,'aaa'),
+('hd2','ox1',10,'aaa')
 go
 
 insert into HDCT_DichVu(maHoaDon,maDichVu,ghichu)
@@ -274,35 +296,51 @@ values('hd1','dv1','aaa'),
 ('hd1','dv3','aaa'),
 ('hd4','dv4','aaa'),
 ('hd5','dv5','aaa')
-go/*
--- proc-
---masp, ten sp, soluongdaban, tongtien
-create proc sp_ThongKeSanPham(@ngay date)
+go
+create proc sp_ThongKeToanSanPham
 as
 begin
-	----declare @masp varchar(20), @TenSP varchar()
-	if(@ngay is not null)
-		begin
-			select hoadon.ngayban,
-					sanpham.MaSanPham, sanpham.TenSanPham,
-					sum(HDCT_MuaBan.soLuong)as'SoLuongDaBan',
-					sum(HDCT_MuaBan.soLuong * sanpham.GiaTien)as 'TongTien' 
-					from sanpham  inner join HDCT_MuaBan on sanpham.MaSanPham = HDCT_MuaBan.maSanPham inner join hoadon on hoadon.maHoaDon = HDCT_MuaBan.maHoaDon
-					group by sanpham.MaSanPham,sanpham.TenSanPham,hoadon.ngayban
-					--select * from hoadon
-			 having hoadon.ngayban like ('2020')
-		 end
-	 else
-		 begin
-			select hoadon.ngayban,
-					sanpham.MaSanPham, sanpham.TenSanPham,
-					sum(HDCT_MuaBan.soLuong)as'SoLuongDaBan',
-					sum(HDCT_MuaBan.soLuong * sanpham.GiaTien)as 'TongTien' 
-					from sanpham  inner join HDCT_MuaBan on sanpham.MaSanPham = HDCT_MuaBan.maSanPham inner join hoadon on hoadon.maHoaDon = HDCT_MuaBan.maHoaDon
-					group by sanpham.MaSanPham,sanpham.TenSanPham,hoadon.ngayban
-			 end
+	select sanpham.MaSanPham as 'ma', sanpham.TenSanPham as 'name',sum(HDCT_MuaBan.soluong * sanpham.GiaTien) as 'TongTien'
+	from sanpham 
+			inner join HDCT_MuaBan on sanpham.MaSanPham = HDCT_MuaBan.maSanPham 
+			inner join hoadon on hoadon.maHoaDon = HDCT_MuaBan.maHoaDon
+			group by sanpham.MaSanPham, sanpham.TenSanPham
 end
+--exec sp_ThongKeToanSanPham
+go
+create proc sp_ThongKeSanPhamTheoNgay(@ngaybatdau date,@ngayKetThuc date)
+as
+begin
+	select sanpham.MaSanPham as 'ma', sanpham.TenSanPham as 'name',sum(HDCT_MuaBan.soluong * sanpham.GiaTien) as 'TongTien'
+	 ,hoadon.ngayban
+	from sanpham 
+			inner join HDCT_MuaBan on sanpham.MaSanPham = HDCT_MuaBan.maSanPham 
+			inner join hoadon on hoadon.maHoaDon = HDCT_MuaBan.maHoaDon
+			where hoadon.ngayban>=@ngaybatdau and hoadon.ngayban <=@ngayKetThuc
+			group by sanpham.MaSanPham, sanpham.TenSanPham,hoadon.ngayban
+end
+--exec sp_ThongKeSanPhamTheoNgay '2020-7-1','2021-1-1'
 
---exec sp_ThongKeSanPham '2020'
 
-*/
+
+
+go
+create proc sp_ThongKeToanDichVu
+as
+begin
+	select DichVu.MaDichVu as'ma',tenDichVu as 'name', SUM(DichVu.GiaTien) as'TongTien'
+	from DichVu 
+			inner join HDCT_DichVu on DichVu.MaDichVu = HDCT_DichVu.maDichVu
+			inner join hoadon on hoadon.maHoaDon = HDCT_DichVu.maHoaDon
+			group by DichVu.MaDichVu,tenDichVu
+end
+--exec sp_ThongKeToanDichVu   select * from HDCT_DichVu
+go
+create proc sp_ThongKeToanDoanhThu
+as
+begin
+	select hoadon.ngayban as 'name', SUM(hoadon.TongTien) as'TongTien'
+	from hoadon group by hoadon.ngayban
+end
+--exec sp_ThongKeToanDoanhThu   select * from hoadon
+go

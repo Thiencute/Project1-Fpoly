@@ -17,15 +17,23 @@ public class Date {
      static final SimpleDateFormat Format_Time = new SimpleDateFormat("YYYY-MM-DD");
      
    public static java.util.Date Now(){
-        return new java.util.Date(System.currentTimeMillis());
+       try {
+            return new java.util.Date(System.currentTimeMillis());
+       } catch (Exception e) {
+            throw new RuntimeException(e);
+       }
    }
   
    public static java.sql.Date DateSql(java.util.Date date) throws ParseException{
-        if(date == null){
+        try {
+           if(date == null){
             return new java.sql.Date(Now().getTime());
         }else{
             return new java.sql.Date(date.getTime());
         }
+       } catch (Exception e) {
+           throw new RuntimeException(e);
+       }
    }
    
    public static java.util.Date DateForm(java.sql.Date date){
