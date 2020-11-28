@@ -95,16 +95,16 @@ public class NhanVien_Dao extends Constructure<NhanVien,String>{
         return  select(Search, enity.getMaNV());
     }
     //check Data
-//    public static void main(String[] args) {
-//        NhanVien nv = new NhanVien();
-//        nv.setMaNV("thiencute");
-//        List<NhanVien> l = Searchh(nv);
-//        for (NhanVien v : l) {
-//            System.out.println(v.getMaNV());
-//            System.out.println(v.getMatKhau());
-//        }
-//        
-//    }
+    public static void main(String[] args) {
+        NhanVien nv = new NhanVien();
+        nv.setMaNV("thiencute");
+        List<NhanVien> l = Searchh(nv);
+        for (NhanVien v : l) {
+            System.out.println(v.getMaNV());
+            System.out.println(v.getMatKhau());
+        }
+        
+    }
     
     public NhanVien SelectById(String MaNV) {
 

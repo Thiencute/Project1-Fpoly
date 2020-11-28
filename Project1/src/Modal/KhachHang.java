@@ -5,8 +5,6 @@
  */
 package Modal;
 
-import java.util.Date;
-
 /**
  *
  * @author Home

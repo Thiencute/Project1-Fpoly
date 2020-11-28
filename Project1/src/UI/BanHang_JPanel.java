@@ -14,7 +14,6 @@ import Modal.DichVu;
 import Modal.GioHang;
 import Modal.SanPham;
 import java.util.ArrayList;
-import javax.swing.JTable;
 import jdk.jshell.spi.SPIResolutionException;
 
 /**
@@ -57,7 +56,7 @@ public class BanHang_JPanel extends javax.swing.JPanel {
         jButton7 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        table_GH_SP = new javax.swing.JTable();
+        table_GH = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -68,8 +67,6 @@ public class BanHang_JPanel extends javax.swing.JPanel {
         txtTongTien = new javax.swing.JTextField();
         jButton8 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        table_GH_DV = new javax.swing.JTable();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -204,7 +201,7 @@ public class BanHang_JPanel extends javax.swing.JPanel {
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 255));
 
-        table_GH_SP.setModel(new javax.swing.table.DefaultTableModel(
+        table_GH.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -227,22 +224,17 @@ public class BanHang_JPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        table_GH_SP.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                table_GH_SPMouseClicked(evt);
-            }
-        });
-        table_GH_SP.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+        table_GH.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                table_GH_SPPropertyChange(evt);
+                table_GHPropertyChange(evt);
             }
         });
-        jScrollPane3.setViewportView(table_GH_SP);
-        if (table_GH_SP.getColumnModel().getColumnCount() > 0) {
-            table_GH_SP.getColumnModel().getColumn(0).setResizable(false);
-            table_GH_SP.getColumnModel().getColumn(1).setResizable(false);
-            table_GH_SP.getColumnModel().getColumn(2).setResizable(false);
-            table_GH_SP.getColumnModel().getColumn(3).setResizable(false);
+        jScrollPane3.setViewportView(table_GH);
+        if (table_GH.getColumnModel().getColumnCount() > 0) {
+            table_GH.getColumnModel().getColumn(0).setResizable(false);
+            table_GH.getColumnModel().getColumn(1).setResizable(false);
+            table_GH.getColumnModel().getColumn(2).setResizable(false);
+            table_GH.getColumnModel().getColumn(3).setResizable(false);
         }
 
         jLabel2.setText("Mã sản phẩm");
@@ -266,47 +258,6 @@ public class BanHang_JPanel extends javax.swing.JPanel {
 
         jButton1.setText("Clear Form");
 
-        table_GH_DV.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Mã DV", "Tên DV", "Số lần", "Đơn giá"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Long.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        table_GH_DV.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                table_GH_DVMouseClicked(evt);
-            }
-        });
-        table_GH_DV.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                table_GH_DVPropertyChange(evt);
-            }
-        });
-        jScrollPane6.setViewportView(table_GH_DV);
-        if (table_GH_DV.getColumnModel().getColumnCount() > 0) {
-            table_GH_DV.getColumnModel().getColumn(0).setResizable(false);
-            table_GH_DV.getColumnModel().getColumn(1).setResizable(false);
-            table_GH_DV.getColumnModel().getColumn(2).setResizable(false);
-            table_GH_DV.getColumnModel().getColumn(3).setResizable(false);
-        }
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -328,22 +279,21 @@ public class BanHang_JPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(99, 99, 99))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTongTien, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(jButton1))
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtTongTien, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1)
+                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(73, 73, 73))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -359,17 +309,15 @@ public class BanHang_JPanel extends javax.swing.JPanel {
                     .addComponent(jLabel3)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTongTien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTongTien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(62, 62, 62))
         );
 
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
@@ -405,7 +353,8 @@ public class BanHang_JPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        
+        // TODO add your handling code here:
+        new ThanhToan_JDialog(new UI_JFrame(), true).setVisible(true);;
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -419,6 +368,7 @@ public class BanHang_JPanel extends javax.swing.JPanel {
     private void table_SPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table_SPMouseClicked
         if(evt.getClickCount() == 2){
             AddSP();
+             TongTien();
         }
     }//GEN-LAST:event_table_SPMouseClicked
 
@@ -428,25 +378,9 @@ public class BanHang_JPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_table_DVMouseClicked
 
-    private void table_GH_SPPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_table_GH_SPPropertyChange
+    private void table_GHPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_table_GHPropertyChange
        TongTien();
-    }//GEN-LAST:event_table_GH_SPPropertyChange
-
-    private void table_GH_SPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table_GH_SPMouseClicked
-        if(evt.getClickCount() == 2){
-            RemoveSP();
-        }
-    }//GEN-LAST:event_table_GH_SPMouseClicked
-
-    private void table_GH_DVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table_GH_DVMouseClicked
-        if(evt.getClickCount() == 2){
-            RemoveDV();
-        }
-    }//GEN-LAST:event_table_GH_DVMouseClicked
-
-    private void table_GH_DVPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_table_GH_DVPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_table_GH_DVPropertyChange
+    }//GEN-LAST:event_table_GHPropertyChange
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -469,13 +403,11 @@ public class BanHang_JPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTable table_DV;
-    private javax.swing.JTable table_GH_DV;
-    private javax.swing.JTable table_GH_SP;
+    private javax.swing.JTable table_GH;
     private javax.swing.JTable table_SP;
     private javax.swing.JTextField txtTongTien;
     private javax.swing.JTextField txt_SearchSP;
@@ -533,187 +465,49 @@ public class BanHang_JPanel extends javax.swing.JPanel {
     List<GioHang> list_GH = new ArrayList<>();
     
     
-    void AddCart(JTable t, int row){
-        System.out.println("row : " + row);
-        DefaultTableModel model_SP = (DefaultTableModel) table_GH_SP.getModel();
-        
-        DefaultTableModel model_DV = (DefaultTableModel) table_GH_DV.getModel();
-        boolean a = true;
-        int z = 0;
-        
-        for(int i=0;i<=table_GH_SP.getRowCount()-1;i++){
-             System.out.println(" i : " + i);
-            System.out.println("\n sp : "+String.valueOf(t.getValueAt(row, 0)));
-            System.out.println(" gh : "+String.valueOf(model_SP.getValueAt(i, 1)));
-            
-            if(table_GH_SP.getRowCount() == 0){
-                model_SP.addRow(new Object[]{t.getValueAt(row, 0), t.getValueAt(row,1), t.getValueAt(row, 2), t.getValueAt(row, 3)});            
-            }else{
-                if(String.valueOf(t.getValueAt(i, 0)).equals(String.valueOf(model_SP.getValueAt(row, 0)))){
-                z=i;
-                a = false;
-            }
-            
-            
+    void AddCart(){
+        DefaultTableModel model = (DefaultTableModel) table_GH.getModel();
+        model.setRowCount(0);
+        for (GioHang gh : list_GH) {
+            model.addRow(new Object[]{gh.getMa(), gh.getTen(), gh.getSoLuong(), gh.getGia()});
         }
-        if(table_GH_SP.getRowCount() == 0){
-                model_DV.addRow(new Object[]{t.getValueAt(row, 0), t.getValueAt(row,1), t.getValueAt(row, 2), t.getValueAt(row, 3)});            
-            };
-        if(a){
-                int soluong =Integer.valueOf(String.valueOf(model_DV.getValueAt(z,2)));
-                double tien = Double.valueOf(String.valueOf(model_DV.getValueAt(z,3)));
-                Object sl = soluong + 1;
-                Object ti = tien + tien;
-//                model.get;
-//            table_GH.setValueAt(ABORT, row, soluong);
-            model_DV.setValueAt(sl, row, 3);
-            model_DV.setValueAt(t, row, 2);
-            }else{
-                model_DV.addRow(new Object[]{t.getValueAt(row, 0), t.getValueAt(row,1), t.getValueAt(row, 2), t.getValueAt(row, 3)});
-            
-            }
-            };
-                
-            
-           
-//        model.addRow(new Object[]{t.getValueAt(row, 0), t.getValueAt(row,1), t.getValueAt(row, 2), t.getValueAt(row, 3)});
         
 //        model.addRow(new Object[]{Ma, Ten, SoLuong, DonGia});
     }
-    
-    void addCart2(JTable t, int row){
+    void AddList_GH(String Ma, String Ten, int  SoLuong, double DonGia){
+        list_GH.add(new GioHang(Ma, Ten, SoLuong, DonGia));
         
-        DefaultTableModel model = (DefaultTableModel) table_GH_SP.getModel();
-        if(model.getRowCount()==0){
-            
-        }
-        String Masp = String.valueOf(t.getValueAt(row, 0));
-        System.out.println(model.getRowCount());
-        for(int i = 0;i<=model.getRowCount();i++){
-            String Magh =String.valueOf(model.getValueAt(i, 0));
-            if(Magh.isEmpty()){
-                System.out.println("no");
-            }else{
-                System.out.println("yes");
-            }
-//System.out.println("lan " +i + " ma :"+Magh);
-        }
-        
+        AddCart();
     }
-    void AddList_GH(){
-        list_GH = new ArrayList<>();
-       for(int i = 0; i<table_GH_SP.getRowCount();i++){
-         list_GH.add(new GioHang(String.valueOf(table_GH_SP.getValueAt(i, 0)),
-                                 String.valueOf(table_GH_SP.getValueAt(i, 1)),
-                                Integer.valueOf(String.valueOf(table_GH_SP.getValueAt(i, 2))),
-                                Double.valueOf(String.valueOf(table_GH_SP.getValueAt(i, 3)))
-                    )          
-         );      
-    }
-       
-    }
-    void AddDV(){
-        int row = table_DV.getSelectedRow();
-        int rowGH = -1;
-        String Ma = String.valueOf(table_DV.getValueAt(row, 0));
-        String Ten = String.valueOf(table_DV.getValueAt(row, 1));
-        double DonGia = Double.valueOf(String.valueOf(table_DV.getValueAt(row, 2)));
-        CartDV(Ma, Ten, 1, DonGia);
-        
-        
-//        AddList_GH();
-//        AddCart();
-//        AddCart(table_DV,row);
-        TongTien();
-    }
-    
-    void CartDV(String Ma, String Ten, int SoLuong,Double DonGia){
-        boolean TrungNhau = false;
-        int RowTrungNhau = -1;
-        DefaultTableModel model = (DefaultTableModel) table_GH_DV.getModel();
-        for(int i=0; i < model.getRowCount(); i++){
-           if(Ma.equalsIgnoreCase(String.valueOf(model.getValueAt(i, 0)))){
-               TrungNhau = true;
-               RowTrungNhau = i;
-           }
-        }
-        
-        if(TrungNhau){
-            int SoLuongMoi = 1 + Integer.valueOf(String.valueOf(model.getValueAt(RowTrungNhau, 2)));    
-            model.setValueAt(SoLuongMoi, RowTrungNhau, 2);
-                   
-        }else{
-            model.addRow(new Object[]{Ma,Ten,1,DonGia});
-        }
-    }
-    
     void AddSP(){
         int row = table_SP.getSelectedRow();
+        
         String Ma = String.valueOf(table_SP.getValueAt(row, 0));
         String Ten = String.valueOf(table_SP.getValueAt(row, 1));
         int SoLuong = Integer.valueOf(String.valueOf(table_SP.getValueAt(row, 2)));
         Double DonGia = Double.valueOf(String.valueOf(table_SP.getValueAt(row, 3)));
-        CartSP(Ma, Ten, SoLuong, DonGia);      
-//        AddCart(table_SP,row);
-//        addCart2(table_SP,row);
-        TongTien();
-    }
-    void CartSP(String Ma, String Ten, int SoLuong,Double DonGia){
-        boolean TrungNhau = false;
-        int RowTrungNhau = -1;
-        DefaultTableModel model = (DefaultTableModel) table_GH_SP.getModel();
-        for(int i=0; i < model.getRowCount(); i++){
-           if(Ma.equalsIgnoreCase(String.valueOf(model.getValueAt(i, 0)))){
-               TrungNhau = true;
-               RowTrungNhau = i;
-           }
-        }
+        AddList_GH(Ma, Ten, SoLuong, DonGia);
         
-        if(TrungNhau){
-            int SoLuongMoi = 1 + Integer.valueOf(String.valueOf(model.getValueAt(RowTrungNhau, 2)));    
-            model.setValueAt(SoLuongMoi, RowTrungNhau, 2);
-                   
-        }else{
-            model.addRow(new Object[]{Ma,Ten,1,DonGia});
-        }
+//        AddCart(Ma, Ten, SoLuong, DonGia);
     }
-    void RemoveSP(){
-        int row = table_GH_SP.getSelectedRow();
-        DefaultTableModel model = (DefaultTableModel) table_GH_SP.getModel();
-        model.removeRow(row);
-//        model.
-        TongTien();
+    void AddDV(){
+        int row = table_DV.getSelectedRow();
+        String Ma = String.valueOf(table_DV.getValueAt(row, 0));
+        String Ten = String.valueOf(table_DV.getValueAt(row, 1));
+        int SoLuong = Integer.valueOf("1");
+        double DonGia = Double.valueOf(String.valueOf(table_DV.getValueAt(row, 2)));
+        AddList_GH(Ma, Ten, SoLuong, DonGia);
+        AddCart();
+        
+//        AddCart(Ma, Ten, SoLuong, DonGia);
     }
-    void RemoveDV(){
-        int row = table_GH_DV.getSelectedRow();
-        DefaultTableModel model = (DefaultTableModel) table_GH_DV.getModel();
-        model.removeRow(row);
-//        model.
-        TongTien();
-    }
-    
-    
     void TongTien(){
         double TongTien = 0;
-        
-        for(int i = 0; i < table_GH_SP.getRowCount();i++){
-            double tien = Double.valueOf(String.valueOf(table_GH_SP.getValueAt(i, 3)));
-            double soLuong = Double.valueOf(String.valueOf(table_GH_SP.getValueAt(i, 2)));
-            TongTien += tien*soLuong;
-        }
-        
-        for(int i = 0; i < table_GH_DV.getRowCount();i++){
-            double tien = Double.valueOf(String.valueOf(table_GH_DV.getValueAt(i, 3)));
-            double soLuong = Double.valueOf(String.valueOf(table_GH_DV.getValueAt(i, 2)));
-            TongTien += tien*soLuong;
+        for(int i = 0; i < table_GH.getRowCount();i++){
+            float tien = Float.valueOf(String.valueOf(table_GH.getValueAt(i, 3)));
+            TongTien += tien;
         }
         txtTongTien.setText(String.valueOf(TongTien));
     }
-   void ThanhToang(){
-       
-   }
-   void RecordBill(){
-       
-   }
-   
+    
 }

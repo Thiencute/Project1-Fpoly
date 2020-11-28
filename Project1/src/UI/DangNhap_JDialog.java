@@ -57,14 +57,14 @@ public class DangNhap_JDialog extends javax.swing.JDialog {
 
         jLabel3.setText("Mật khẩu");
 
-        txtUser.setText("thiencute");
+        txtUser.setText("cuong");
         txtUser.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtUserKeyPressed(evt);
             }
         });
 
-        txtPass.setText("789");
+        txtPass.setText("123");
         txtPass.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtPassKeyPressed(evt);
@@ -156,7 +156,7 @@ public class DangNhap_JDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_txtUserKeyPressed
 
     private void txtPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyPressed
-        if(evt.getKeyCode()== java.awt.event.KeyEvent.VK_ENTER ){
+        if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER ){
            login();
       }
     }//GEN-LAST:event_txtPassKeyPressed

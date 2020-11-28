@@ -6,7 +6,6 @@
 package DAO;
 import Modal.NhaCungCap;
 import DAO.Constructure;
-import Modal.SanPham;
 import java.util.*;
 import java.sql.*;
 
@@ -16,10 +15,10 @@ import java.sql.*;
  */
 public class NhaCungCap_Dao extends Constructure<NhaCungCap,String>{
     private String Insert = "insert into NhaCungCap(MaNCC,tenNCC,MaSanPham,NoiSanXuat,diachi) values  (?,?,?,?,?,)";
-    private String Delte = "delete from NhaCungCap where MaNCC=?";
-    private String Update = "update NhaCungCap set tenNCC = ?,MaSanPham = ?,NoiSanXuat = ?,diachi =? where MaNCC = ?";
-    private String Data = "select * from NhaCungCap";
-    private String Search = "select * from NhaCungCap where MaNCC = ?";
+    private String Delte = "";
+    private String Update = "update NhaCungCap set MaNCC = ?,tenNCC = ?,MaSanPham = ?,NoiSanXuat = ? where MaNCC like ?";
+    private String Data = "select * from";
+    private String Search = "select * from where MaNCC like ?";
     
     List<NhaCungCap> list = new ArrayList<>();
     NhaCungCap ncc = new NhaCungCap();
@@ -71,13 +70,6 @@ public class NhaCungCap_Dao extends Constructure<NhaCungCap,String>{
     public List<NhaCungCap> Search(String enity) {
          return select(Data, enity);
     }
-     public NhaCungCap SelectById(String MaSP) {
-
-        List<NhaCungCap> list = select(Search, MaSP);
-        if (list.isEmpty()) {
-            return null;
-        }
-        return list.get(0);
-    }
+ 
     
 }
