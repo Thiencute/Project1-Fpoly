@@ -119,7 +119,7 @@ public class SanPham_Dao extends Constructure<SanPham, String> {
         List<SanPham> list = select(Search, MaSP);
         if (list.isEmpty()) {
             return null;
-        }
+   }
         return list.get(0);
     }
 

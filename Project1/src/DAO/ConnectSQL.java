@@ -15,7 +15,7 @@ public class ConnectSQL {
 
     private static String User = "Project1";
     private static String pass = "abc";
-    private static String url = "jdbc:sqlserver://localhost;database=Project1_CB";
+    private static String url = "jdbc:sqlserver://localhost:1433;databaseName=Project1_CB";
 
     static {
         try {

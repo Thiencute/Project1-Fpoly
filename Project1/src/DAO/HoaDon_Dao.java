@@ -13,7 +13,7 @@ import java.util.List;
  * @author Home
  */
 public class HoaDon_Dao extends Constructure<HoaDon,String>{
-private String Insert = "";
+private String Insert = "Insert into HoaDon()";
     private String Delte = "";
     private String Update = "";
     private String Data = "";

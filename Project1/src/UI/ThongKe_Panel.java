@@ -86,7 +86,18 @@ public class ThongKe_Panel extends javax.swing.JPanel {
         content.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(938, 22, -1, -1));
 
         ChartPannel.setBackground(new java.awt.Color(255, 102, 51));
-        ChartPannel.setLayout(new javax.swing.BoxLayout(ChartPannel, javax.swing.BoxLayout.LINE_AXIS));
+
+        javax.swing.GroupLayout ChartPannelLayout = new javax.swing.GroupLayout(ChartPannel);
+        ChartPannel.setLayout(ChartPannelLayout);
+        ChartPannelLayout.setHorizontalGroup(
+            ChartPannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1100, Short.MAX_VALUE)
+        );
+        ChartPannelLayout.setVerticalGroup(
+            ChartPannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 690, Short.MAX_VALUE)
+        );
+
         content.add(ChartPannel, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 63, 1100, 690));
 
         jButton5.setText("jButton5");
@@ -122,7 +133,7 @@ public class ThongKe_Panel extends javax.swing.JPanel {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
        chartDT();
     }//GEN-LAST:event_jButton3ActionPerformed
-    
+    ChartPanel c;
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
        //tao chart
        List<ThongKe> list = ThongKeDao.DoanhThu();
@@ -135,15 +146,11 @@ public class ThongKe_Panel extends javax.swing.JPanel {
         JFreeChart chart = ChartFactory.createLineChart("aa", "a", "aa", jfchart);
 
         //setup chart
-        ChartPanel c = new ChartPanel(chart);
-        c.setSize(ChartPannel.getWidth(), ChartPannel.getHeight());
-        c.setMouseWheelEnabled(false);
+         c = new ChartPanel(chart);
         
 //       p.setLayout(new java.awt.BorderLayout());
         //update panel
-        ChartPannel.removeAll();
-        ChartPannel.add(c, BorderLayout.CENTER);
-        ChartPannel.validate();
+        
     }//GEN-LAST:event_jButton5ActionPerformed
 
 
@@ -169,23 +176,22 @@ public class ThongKe_Panel extends javax.swing.JPanel {
         }
         //dua chart vao panel
         JFreeChart chart = ChartFactory.createBarChart(Title, Name, Stringvalue, jfchart);
-//        chart.setBackgroundPaint(Color.yellow);
-        chart.setBorderVisible(false);
+
         
-        CategoryPlot pilot = chart.getCategoryPlot();
-        pilot.setRangeGridlinePaint(Color.yellow);
-        pilot.setRangeGridlinesVisible(true);
+ 
         //setup chart
-        ChartPanel c = new ChartPanel(chart);
         
+        
+        c = new ChartPanel(chart);
         c.setSize(ChartPannel.getWidth(), ChartPannel.getHeight());
-        c.setMouseWheelEnabled(true);
+        c.setMouseWheelEnabled(false);
+        
 
 //       p.setLayout(new java.awt.BorderLayout());
         //update panel
-        ChartPannel.removeAll();
-        ChartPannel.add(c, BorderLayout.CENTER);
-        ChartPannel.validate();
+//        ChartPannel.removeAll();
+//        ChartPannel.add(c, BorderLayout.CENTER);
+//        ChartPannel.validate();
 
     }
 
@@ -201,6 +207,7 @@ public class ThongKe_Panel extends javax.swing.JPanel {
     
     }
     void init() {
+        
         this.sp = ThongKeDao.SanPham();
         this.dv = ThongKeDao.DichVu();
         this.thongke = ThongKeDao.DoanhThu();

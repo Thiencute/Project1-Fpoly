@@ -35,6 +35,9 @@ public class UI_JFrame extends javax.swing.JFrame {
     }
         
       Main_JPanel main = new Main_JPanel();
+       QuanLi_JPanel ql = new QuanLi_JPanel();
+       ThongKe_Panel tk = new ThongKe_Panel();
+        BanHang_JPanel bh = new BanHang_JPanel();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -192,7 +195,7 @@ public class UI_JFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    BanHang_JPanel bh = new BanHang_JPanel();
+   
             
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         changeForm(bh);
@@ -200,24 +203,25 @@ public class UI_JFrame extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        QuanLi_JPanel ql = new QuanLi_JPanel();
+       
         changeForm(ql);
         
     }//GEN-LAST:event_jButton4ActionPerformed
-        ThongKe_Panel tk = new ThongKe_Panel();
+        
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         changeForm(tk);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        changeForm(main);
         new DangNhap_JDialog(this, true).setVisible(true);
 
     }//GEN-LAST:event_jButton6ActionPerformed
     
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Main_JPanel main = new Main_JPanel();
-        changeForm(new Main_JPanel());
+        
+        changeForm(main);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
