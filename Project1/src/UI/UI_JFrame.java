@@ -75,6 +75,8 @@ public class UI_JFrame extends javax.swing.JFrame {
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 143, -1, -1));
 
         txtUsername.setEditable(false);
+        txtUsername.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtUsername.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPanel3.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 143, 162, -1));
 
         jButton2.setText("BÁN HÀNG");
@@ -295,13 +297,13 @@ void changeForm(JPanel pn){
         cal.get(Calendar.YEAR);
         cal.get(Calendar.MONTH);
         cal.get(Calendar.DAY_OF_MONTH);
-        SimpleDateFormat formater =new SimpleDateFormat("dd//MM//yyyy       hh:mm:ss a");
+        SimpleDateFormat formater =new SimpleDateFormat("dd/MM/yyyy       hh:mm:ss a");
         new Timer(1000, (ActionEvent) -> {
             txtTimeDay.setText(formater.format(new Date()));
         }).start();
     }
     void user(){
-        txtUsername.setText(Auth.user.getMaNV());
+        txtUsername.setText(Auth.user.getTenNV());
     }
 
 }

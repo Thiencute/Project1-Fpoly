@@ -163,19 +163,7 @@ go
 --
 
 
-<<<<<<< HEAD
-insert into hoadon(maHoaDon,MaKH,ghichu,manv,ngayban)
-values ('hd1','kh1','ghichu1','khoa',''),
-('hd2','kh2','ghichu2','khoa',''),
-	   ('hd3','kh3','ghichu3','khoa',''),
-	   ('hd4','kh4','ghichu4','khoa',''),
-       ('hd5','kh5','ghichu5','khoa',''),
-	   ('hd6','kh6','ghichu6','khoa',''),
-	   ('hd7','kh7','ghichu7','khoa',''),
-       ('hd8','kh8','ghichu8','khoa',''),
-	   ('hd9','kh9','ghichu9','khoa',''),
-	   ('hd10','kh10','ghichu10','khoa','')
-=======
+
 insert into hoadon(maHoaDon,MaKH,ghichu,manv,tongtien)
 values ('hd1','kh1','ghichu1','khoa',1234),
        ('hd2','kh2','ghichu2','khoa',1230),
@@ -187,7 +175,7 @@ values ('hd1','kh1','ghichu1','khoa',1234),
        ('hd8','kh8','ghichu8','khoa',1211),
 	   ('hd9','kh9','ghichu9','khoa',1000),
 	   ('hd10','kh10','ghichu10','khoa',1230)
->>>>>>> 5dc261b03d4202c656e2476ccca4268851a67bfe
+
 go
 insert into hoadon(maHoaDon,MaKH,ghichu,manv,tongtien,ngayban)
 values ('hd11','kh1','ghichu1','khoa',1234,'2000-1-1'),
@@ -228,16 +216,16 @@ insert into sanpham(MaSanPham,TenSanPham,ngayNhapHang,GiaTien,Mota,TheTich,soLuo
 go
 
 insert into NhaCungCap(MaNCC,tenNCC,MaSanPham,NoiSanXuat,diachi)
-values  ('001','honda','tx1','NhaMay1','Đồng Nai'),
-        ('002','honda','tx1','NhaMay2','Vũng Tàu'),
-        ('003','honda','dx1','NhaMay3','Hồ Chí Minh'),
-		('004','honda','dx1','NhaMay4','Đồng Nai'),
-        ('005','honda','dx1','NhaMay5','Vũng Tàu'),
-        ('006','honda','dx1','NhaMay6','Hồ Chí Minh'),
-		('007','honda','ox1','NhaMay7','Đồng Nai'),
-        ('008','honda','ox1','NhaMay8','Vũng Tàu'),
-        ('009','honda','ox1','NhaMay9','Hồ Chí Minh'),
-        ('0010','honda','ox1','NhaMay10','Hồ Chí Minh')
+values  ('001','honda','tx1','NhaMay1',N'Đồng Nai'),
+        ('002','honda','tx1','NhaMay2',N'Vũng Tàu'),
+        ('003','honda','dx1','NhaMay3',N'Hồ Chí Minh'),
+		('004','honda','dx1','NhaMay4',N'Đồng Nai'),
+        ('005','honda','dx1','NhaMay5',N'Vũng Tàu'),
+        ('006','honda','dx1','NhaMay6',N'Hồ Chí Minh'),
+		('007','honda','ox1','NhaMay7',N'Đồng Nai'),
+        ('008','honda','ox1','NhaMay8',N'Vũng Tàu'),
+        ('009','honda','ox1','NhaMay9',N'Hồ Chí Minh'),
+        ('0010','honda','ox1','NhaMay10',N'Hồ Chí Minh')
 go
 --
 insert into Kho(MaKho,SucChua,DiaChi,GhiChu)
