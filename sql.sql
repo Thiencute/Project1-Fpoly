@@ -170,32 +170,18 @@ go
 --
 
 
-<<<<<<< HEAD
 --hoadon cuangay hnay
 insert into hoadon(MaKH,manv,tongtien)
 values ('kh1','khoa',1234),
        ('kh2','khoa',1230),
 	   ('kh3','khoa',1266)
 	   
-=======
 
-insert into hoadon(maHoaDon,MaKH,ghichu,manv,tongtien)
-values ('hd1','kh1','ghichu1','khoa',1234),
-       ('hd2','kh2','ghichu2','khoa',1230),
-	   ('hd3','kh3','ghichu3','khoa',1266),
-	   ('hd4','kh4','ghichu4','khoa',1277),
-       ('hd5','kh5','ghichu5','khoa',1233),
-	   ('hd6','kh6','ghichu6','khoa',1230),
-	   ('hd7','kh7','ghichu7','khoa',1244),
-       ('hd8','kh8','ghichu8','khoa',1211),
-	   ('hd9','kh9','ghichu9','khoa',1000),
-	   ('hd10','kh10','ghichu10','khoa',1230)
-
->>>>>>> b0740f2cff579c09cc0426ab9ff0bd642db80e7b
 go
 insert into hoadon(MaKH,manv,tongtien,ngayban)
 values ('kh1','khoa',1234,'2000-1-1'),
        ('kh2','khoa',1230,'2000-2-1'),
+	   ('kh3','khoa',1266,'2000-3-1'),
 	   ('kh3','khoa',1266,'2000-3-1')
 	   go
 --select * from hoadon
@@ -267,7 +253,6 @@ values ('Kho1','nx1',10,'ghichu1'),
 	   ('Kho9','kx1',10,'ghichu9'),
 	   ('Kho10','kx1',10,'ghichu10')
 go
-
 
 insert into HDCT(maHoaDon,MaThanhPhan,TenThanhPhan,ghichu)
 values(1,'kx1','aaa','aaa'),
