@@ -31,6 +31,7 @@ public class UI_JFrame extends javax.swing.JFrame {
         StartDongho();
         user();
         
+        
        
     }
         
@@ -48,13 +49,24 @@ public class UI_JFrame extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
+<<<<<<< HEAD
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        txtTimeDay = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
+=======
+        btnBanHang = new javax.swing.JButton();
+        btnHome = new javax.swing.JButton();
+        btnQuanLi = new javax.swing.JButton();
+        btnThongKe = new javax.swing.JButton();
+        btnDangXuat = new javax.swing.JButton();
+        lblDayTime = new javax.swing.JLabel();
+        btnThoat = new javax.swing.JButton();
+>>>>>>> cbe7fd1ef849b9650ffdc1fd0be8e20dc7341559
         content = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -75,61 +87,123 @@ public class UI_JFrame extends javax.swing.JFrame {
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 143, -1, -1));
 
         txtUsername.setEditable(false);
+<<<<<<< HEAD
         txtUsername.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtUsername.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 873a4370f5ddac960f3e2d7010708b5f07ad81d3
         jPanel3.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 143, 162, -1));
+>>>>>>> cbe7fd1ef849b9650ffdc1fd0be8e20dc7341559
 
-        jButton2.setText("BÁN HÀNG");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnBanHang.setText("BÁN HÀNG");
+        btnBanHang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnBanHangActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 273, 231, 40));
+        jPanel3.add(btnBanHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 273, 231, 40));
 
-        jButton3.setText("HOME");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnHome.setText("HOME");
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnHomeActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 215, 231, 40));
+        jPanel3.add(btnHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 215, 231, 40));
 
-        jButton4.setText("QUẢN LÍ");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnQuanLi.setText("QUẢN LÍ");
+        btnQuanLi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnQuanLiActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 331, 231, 40));
+        jPanel3.add(btnQuanLi, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 331, 231, 40));
 
-        jButton5.setText("THỐNG KÊ");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnThongKe.setText("THỐNG KÊ");
+        btnThongKe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnThongKeActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 389, 231, 40));
+        jPanel3.add(btnThongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 389, 231, 40));
 
-        jButton6.setText("ĐĂNG XUẤT");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnDangXuat.setText("ĐĂNG XUẤT");
+        btnDangXuat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnDangXuatActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 447, 231, 40));
+        jPanel3.add(btnDangXuat, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 447, 231, 40));
 
-        txtTimeDay.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        txtTimeDay.setForeground(new java.awt.Color(255, 0, 0));
-        jPanel3.add(txtTimeDay, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 720, 210, 20));
+        lblDayTime.setForeground(new java.awt.Color(255, 0, 0));
+        jPanel3.add(lblDayTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 730, -1, -1));
 
-        jButton7.setText("THOÁT");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        btnThoat.setText("THOÁT");
+        btnThoat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                btnThoatActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 505, 231, 40));
+<<<<<<< HEAD
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(0, 44, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(txtUsername)
+                        .addContainerGap())))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addGap(42, 42, 42)
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jLabel5)
+                .addGap(15, 15, 15)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(52, 52, 52)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addGap(28, 28, 28))
+        );
+=======
+        jPanel3.add(btnThoat, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 505, 231, 40));
+>>>>>>> cbe7fd1ef849b9650ffdc1fd0be8e20dc7341559
 
         content.setLayout(new java.awt.CardLayout());
 
@@ -194,38 +268,60 @@ public class UI_JFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
+    
+         BanHang_JPanel bh = new BanHang_JPanel();   
+    private void btnBanHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBanHangActionPerformed
+       
+=======
     BanHang_JPanel bh = new BanHang_JPanel();
-            
+<<<<<<< HEAD
+            QuanLi_JPanel ql = new QuanLi_JPanel();
+            ThongKe_Panel tk = new ThongKe_Panel();
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+=======
+            
+    private void btnBanHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBanHangActionPerformed
+>>>>>>> cbe7fd1ef849b9650ffdc1fd0be8e20dc7341559
+>>>>>>> c0e358c7b5835a3e56465b91ff5659c6f32101ad
         changeForm(bh);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnBanHangActionPerformed
+    QuanLi_JPanel ql = new QuanLi_JPanel();
+    private void btnQuanLiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuanLiActionPerformed
         // TODO add your handling code here:
-        QuanLi_JPanel ql = new QuanLi_JPanel();
+        
         changeForm(ql);
         
-    }//GEN-LAST:event_jButton4ActionPerformed
-        ThongKe_Panel tk = new ThongKe_Panel();
+    }//GEN-LAST:event_btnQuanLiActionPerformed
+
+<<<<<<< HEAD
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         changeForm(tk);
     }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+=======
+    private void btnThongKeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThongKeActionPerformed
         // TODO add your handling code here:
-        new DangNhap_JDialog(this, true).setVisible(true);
+        new ThongKe_JDialog(this, true).setVisible(true);
+    }//GEN-LAST:event_btnThongKeActionPerformed
+>>>>>>> cbe7fd1ef849b9650ffdc1fd0be8e20dc7341559
 
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void btnDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangXuatActionPerformed
+        // TODO add your handling code here:
+        UI_JFrame.this.dispose();
+        new UI_JFrame().setVisible(true);
+           
+
+    }//GEN-LAST:event_btnDangXuatActionPerformed
     
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
         Main_JPanel main = new Main_JPanel();
         changeForm(new Main_JPanel());
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnHomeActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatActionPerformed
         // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_btnThoatActionPerformed
 void changeForm(JPanel pn){
     content.removeAll();
     content.add(pn);
@@ -258,7 +354,6 @@ void changeForm(JPanel pn){
             java.util.logging.Logger.getLogger(UI_JFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -269,13 +364,13 @@ void changeForm(JPanel pn){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBanHang;
+    private javax.swing.JButton btnDangXuat;
+    private javax.swing.JButton btnHome;
+    private javax.swing.JButton btnQuanLi;
+    private javax.swing.JButton btnThoat;
+    private javax.swing.JButton btnThongKe;
     private javax.swing.JPanel content;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
@@ -283,7 +378,10 @@ void changeForm(JPanel pn){
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JLabel txtTimeDay;
+<<<<<<< HEAD
+=======
+    private javax.swing.JLabel lblDayTime;
+>>>>>>> cbe7fd1ef849b9650ffdc1fd0be8e20dc7341559
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
     void initColor(){
@@ -293,17 +391,22 @@ void changeForm(JPanel pn){
     }
 
     void StartDongho(){
+<<<<<<< HEAD
         Calendar cal = Calendar.getInstance();
         cal.get(Calendar.YEAR);
         cal.get(Calendar.MONTH);
         cal.get(Calendar.DAY_OF_MONTH);
         SimpleDateFormat formater =new SimpleDateFormat("dd/MM/yyyy       hh:mm:ss a");
+=======
+        SimpleDateFormat formater =new SimpleDateFormat("dd/MM/yyy        hh:mm:ss a");
+>>>>>>> 873a4370f5ddac960f3e2d7010708b5f07ad81d3
         new Timer(1000, (ActionEvent) -> {
-            txtTimeDay.setText(formater.format(new Date()));
+            lblDayTime.setText(formater.format(new Date()));
         }).start();
     }
     void user(){
         txtUsername.setText(Auth.user.getTenNV());
     }
-
+  
+    
 }
