@@ -29,6 +29,7 @@ public class ThongKe_Panel extends javax.swing.JPanel {
     public ThongKe_Panel() {
         initComponents();
         init();
+        changeChart(ChartSP());
     }
 
     void changeForm(JPanel pn) {
@@ -53,7 +54,6 @@ public class ThongKe_Panel extends javax.swing.JPanel {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         ChartPannel = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
 
         content.setPreferredSize(new java.awt.Dimension(1142, 772));
         content.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -64,7 +64,7 @@ public class ThongKe_Panel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        content.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 22, -1, -1));
+        content.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jButton2.setText("Dịch Vụ");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -72,7 +72,7 @@ public class ThongKe_Panel extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        content.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 22, -1, -1));
+        content.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
 
         jButton3.setText("Doanh Thu");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -80,22 +80,30 @@ public class ThongKe_Panel extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
-        content.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 22, -1, -1));
+        content.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
 
         jButton4.setText("In");
-        content.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(938, 22, -1, -1));
-
-        ChartPannel.setBackground(new java.awt.Color(255, 102, 51));
-        ChartPannel.setLayout(new javax.swing.BoxLayout(ChartPannel, javax.swing.BoxLayout.LINE_AXIS));
-        content.add(ChartPannel, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 63, 1100, 690));
-
-        jButton5.setText("jButton5");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                jButton4ActionPerformed(evt);
             }
         });
-        content.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, -1));
+        content.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(938, 22, -1, -1));
+
+        ChartPannel.setBackground(new java.awt.Color(204, 204, 204));
+
+        javax.swing.GroupLayout ChartPannelLayout = new javax.swing.GroupLayout(ChartPannel);
+        ChartPannel.setLayout(ChartPannelLayout);
+        ChartPannelLayout.setHorizontalGroup(
+            ChartPannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1100, Short.MAX_VALUE)
+        );
+        ChartPannelLayout.setVerticalGroup(
+            ChartPannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 690, Short.MAX_VALUE)
+        );
+
+        content.add(ChartPannel, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 63, 1100, 690));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -112,39 +120,21 @@ public class ThongKe_Panel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        ChartSP();
+//        ChartSP();
+        changeChart(ChartSP());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        chartDV();
+         changeChart(chartDV());
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       chartDT();
+       changeChart(chartDT());
     }//GEN-LAST:event_jButton3ActionPerformed
+    
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-       //tao chart
-       List<ThongKe> list = ThongKeDao.DoanhThu();
-        DefaultCategoryDataset jfchart = new DefaultCategoryDataset();
-        //them du lieu
-        for (int i = 0; i < list.size(); i++) {
-            jfchart.setValue(list.get(i).getValue(), "ngày", list.get(i).getName());
-        }
-        //dua chart vao panel
-        JFreeChart chart = ChartFactory.createLineChart("aa", "a", "aa", jfchart);
-
-        //setup chart
-        ChartPanel c = new ChartPanel(chart);
-        c.setSize(ChartPannel.getWidth(), ChartPannel.getHeight());
-        c.setMouseWheelEnabled(false);
-        
-//       p.setLayout(new java.awt.BorderLayout());
-        //update panel
-        ChartPannel.removeAll();
-        ChartPannel.add(c, BorderLayout.CENTER);
-        ChartPannel.validate();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_jButton4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -154,13 +144,12 @@ public class ThongKe_Panel extends javax.swing.JPanel {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     // End of variables declaration//GEN-END:variables
     List<ThongKe> sp;
     List<ThongKe> dv;
     List<ThongKe> thongke;
 
-    void Chart(String Title, String Name, String Stringvalue, List<ThongKe> list) {
+    JFreeChart Chart(String Title, String Name, String Stringvalue, List<ThongKe> list) {
         //tao chart
         DefaultCategoryDataset jfchart = new DefaultCategoryDataset();
         //them du lieu
@@ -169,41 +158,55 @@ public class ThongKe_Panel extends javax.swing.JPanel {
         }
         //dua chart vao panel
         JFreeChart chart = ChartFactory.createBarChart(Title, Name, Stringvalue, jfchart);
-//        chart.setBackgroundPaint(Color.yellow);
-        chart.setBorderVisible(false);
+        return chart;
         
-        CategoryPlot pilot = chart.getCategoryPlot();
-        pilot.setRangeGridlinePaint(Color.yellow);
-        pilot.setRangeGridlinesVisible(true);
+ 
         //setup chart
-        ChartPanel c = new ChartPanel(chart);
         
-        c.setSize(ChartPannel.getWidth(), ChartPannel.getHeight());
-        c.setMouseWheelEnabled(true);
+        
+        
+        
 
 //       p.setLayout(new java.awt.BorderLayout());
         //update panel
-        ChartPannel.removeAll();
-        ChartPannel.add(c, BorderLayout.CENTER);
-        ChartPannel.validate();
+//        ChartPannel.removeAll();
+//        ChartPannel.add(c, BorderLayout.CENTER);
+//        ChartPannel.validate();
 
     }
 
-    void ChartSP() {
+    JFreeChart ChartSP() {
 //    List<ThongKe> list = ThongKeDao.SanPham();
-        Chart("Thống Kê Sản Phẩm", "Tên Sản Phẩm", "Nghìn Đồng", sp);
+
+       return Chart("Thống Kê Sản Phẩm", "Tên Sản Phẩm", "Nghìn Đồng", this.sp);
     }
-    void chartDV(){
-         Chart("Thống Kê Dịch Vụ", "Tên Dịch Vụ", "Nghìn Đồng", dv);
+    JFreeChart chartDV(){
+        return Chart("Thống Kê Dịch Vụ", "Tên Dịch Vụ", "Nghìn Đồng", dv);
     }
-    void chartDT(){
-        Chart("Thống Kê Doanh Thu", "Ngày", "Nghìn Đồng", thongke);
+    JFreeChart chartDT(){
+       return Chart("Thống Kê Doanh Thu", "Ngày", "Nghìn Đồng", thongke);
     
     }
     void init() {
         this.sp = ThongKeDao.SanPham();
         this.dv = ThongKeDao.DichVu();
         this.thongke = ThongKeDao.DoanhThu();
+        c = new ChartPanel(ChartSP());
+//        ChartPannel.add(c);
+        
+        
+        
     }
-
+    
+        ChartPanel c;
+    void changeChart(JFreeChart chart){
+        
+        c = new ChartPanel(chart);
+        c.setSize(ChartPannel.getWidth(), ChartPannel.getHeight());
+        c.setMouseWheelEnabled(false);
+        ChartPannel.removeAll();
+        ChartPannel.add(c);
+        ChartPannel.repaint();
+//        ChartPannel.revalidate();
+    }
 }

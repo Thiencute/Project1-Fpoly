@@ -156,7 +156,7 @@ public class DangNhap_JDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_txtUserKeyPressed
 
     private void txtPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyPressed
-        if(evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER ){
+        if(evt.getKeyCode()== java.awt.event.KeyEvent.VK_ENTER ){
            login();
       }
     }//GEN-LAST:event_txtPassKeyPressed
